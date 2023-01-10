@@ -177,7 +177,7 @@ public class GUI_1 {
 				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
 			}
 		));
-		table.setBounds(52, 61, 712, 247);
+		table.setBounds(40, 34, 712, 247);
 		frmGui.getContentPane().add(table);
 		
 		table = new JTable();
