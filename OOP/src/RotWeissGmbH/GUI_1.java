@@ -23,11 +23,15 @@ import java.awt.Font;
 import java.awt.Point;
 import java.awt.Dimension;
 import java.awt.Component;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Window.Type;
+import java.awt.ComponentOrientation;
+import javax.swing.JTextPane;
+
 
 public class GUI_1 {
 
-	private JFrame frame;
-	private final JScrollBar scrollBar = new JScrollBar();
+	private JFrame frmGui;
 	private JTable table;
 	/**
 	 * Launch the application.
@@ -37,7 +41,7 @@ public class GUI_1 {
 			public void run() {
 				try {
 					GUI_1 window = new GUI_1();
-					window.frame.setVisible(true);
+					window.frmGui.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,24 +60,164 @@ public class GUI_1 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setAlwaysOnTop(true);
-		frame.setBackground(new Color(0, 0, 0));
-		frame.getContentPane().setBackground(new Color(0, 0, 0));
-		scrollBar.setForeground(new Color(0, 128, 0));
-		scrollBar.setAutoscrolls(true);
-		scrollBar.setBackground(new Color(0, 128, 64));
-		frame.getContentPane().add(scrollBar, BorderLayout.EAST);
+		frmGui = new JFrame();
+		frmGui.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		frmGui.setType(Type.POPUP);
+		frmGui.getContentPane().setLayout(null);
+		frmGui.setTitle("GUI_1");
+		frmGui.setAlwaysOnTop(true);
+		frmGui.setBackground(new Color(255, 255, 255));
+		frmGui.getContentPane().setBackground(new Color(0, 0, 0));
 		
 		table = new JTable();
-		table.setBackground(new Color(0, 0, 0));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		table.setBounds(52, 61, 712, 247);
+		frmGui.getContentPane().add(table);
+		
+		table = new JTable();
+		table.setFillsViewportHeight(true);
+		table.setAutoCreateRowSorter(true);
+		table.setOpaque(false);
+		table.setPreferredSize(new Dimension(100, 100));
+		table.setName("GUI_1");
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"L\u00F6schen", "Auftragsnummer", "Kundennummer", "Kundenname", "Auftrag", "Datum", "Service-Techn.", "Kosten"},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"L\u00F6schen", "Auftragsnummer", "Kundennummer", "Kundenname", "Auftrag", "F\u00E4lligkeitsdatum", "Mitarbeiter", "Kosten"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		table.setGridColor(new Color(192, 192, 192));
+		table.setForeground(new Color(255, 255, 255));
+		table.setBackground(new Color(255, 255, 255));
 		table.setAutoscrolls(false);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setAutoCreateColumnsFromModel(false);
 		table.setAlignmentY(1.0f);
 		table.setAlignmentX(1.0f);
-		frame.getContentPane().add(table, BorderLayout.CENTER);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }
