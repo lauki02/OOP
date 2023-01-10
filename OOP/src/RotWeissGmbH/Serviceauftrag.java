@@ -1,7 +1,7 @@
 package RotWeissGmbH;
 
 import java.util.Calendar;
-
+//Teständerung
 public class Serviceauftrag {
 	// Attribute des Serviceauftrags definieren
 		private int auftragsNummer;
