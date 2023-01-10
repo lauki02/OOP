@@ -19,13 +19,16 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import java.awt.Font;
+import java.awt.Point;
+import java.awt.Dimension;
+import java.awt.Component;
 
 public class GUI_1 {
 
 	private JFrame frame;
-	private final JToolBar toolBar = new JToolBar();
 	private final JScrollBar scrollBar = new JScrollBar();
-
+	private JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -56,12 +59,20 @@ public class GUI_1 {
 		frame = new JFrame();
 		frame.setAlwaysOnTop(true);
 		frame.setBackground(new Color(0, 0, 0));
-		frame.getContentPane().setBackground(new Color(0, 128, 255));
-		scrollBar.setBackground(new Color(255, 255, 255));
+		frame.getContentPane().setBackground(new Color(0, 0, 0));
+		scrollBar.setForeground(new Color(0, 128, 0));
+		scrollBar.setAutoscrolls(true);
+		scrollBar.setBackground(new Color(0, 128, 64));
 		frame.getContentPane().add(scrollBar, BorderLayout.EAST);
-		toolBar.setBackground(new Color(0, 0, 0));
-		frame.getContentPane().add(toolBar, BorderLayout.NORTH);
-		frame.setBounds(100, 100, 772, 592);
+		
+		table = new JTable();
+		table.setBackground(new Color(0, 0, 0));
+		table.setAutoscrolls(false);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.setAutoCreateColumnsFromModel(false);
+		table.setAlignmentY(1.0f);
+		table.setAlignmentX(1.0f);
+		frame.getContentPane().add(table, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
