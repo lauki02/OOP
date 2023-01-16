@@ -7,6 +7,6 @@ public class Mitarbeiter extends Person{
 		void Mitarbeiter (String parameter1, String parameter2) {
 			setName (parameter1);
 			setAdresse (parameter2);
-			//Mitarbeiternummer muss automatisch erzeugt werden
+			//MitarbeiterNummer muss automatisch erzeugt werden
 		}
 }

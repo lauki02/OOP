@@ -13,6 +13,6 @@ public class Kunde extends Person{
 		void Kunde (String parameter1, String parameter2) {
 			setName (parameter1);
 			setAdresse (parameter2);
-			//Kundennummer muss automatisch erzeugt werden
+			//KundenNummer muss automatisch erzeugt werden
 		}
 }
