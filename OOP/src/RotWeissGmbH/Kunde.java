@@ -1,5 +1,7 @@
 package RotWeissGmbH;
 
+//Test Robo
+
 public class Kunde extends Person{
 	private int KundenNummer;
 	public int getKundenNummer() {
