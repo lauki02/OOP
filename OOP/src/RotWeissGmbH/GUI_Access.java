@@ -37,7 +37,7 @@ public class GUI_Access extends JFrame {
 	 */
 	public GUI_Access() {
 		setType(Type.UTILITY);
-		setTitle("Mitarbeiterzugang");
+		setTitle("Mitarbeiterzugang:");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel(); getContentPane().setLayout(null); 
@@ -54,7 +54,7 @@ public class GUI_Access extends JFrame {
  contentPane.add(textField);
  textField.setColumns(10);
  
- JLabel lblNewLabel_1 = new JLabel("Datzugehöriger Auftrag:");
+ JLabel lblNewLabel_1 = new JLabel("Dazugehöriger Auftrag:");
  lblNewLabel_1.setBounds(139, 78, 160, 13);
  contentPane.add(lblNewLabel_1);
  

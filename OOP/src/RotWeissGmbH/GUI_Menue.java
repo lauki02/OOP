@@ -64,7 +64,7 @@ public class GUI_Menue extends JFrame {
  contentPane.add(textField_3);
  textField_3.setColumns(10);
  
- JButton btnNewButton = new JButton("Continue");
+ JButton btnNewButton = new JButton("Anlegen");
  btnNewButton.setBounds(330, 232, 96, 21);
  contentPane.add(btnNewButton);
  

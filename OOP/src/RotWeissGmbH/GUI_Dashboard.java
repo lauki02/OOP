@@ -39,11 +39,6 @@ public class GUI_Dashboard {
 	private JFrame frmGui;
 	private JTable table;
 	private JTable table_1;
-	private JTable table_2;
-	private JTable table_4;
-	private JTable table_5;
-	private JTable table_6;
-	private JTable table_7;
 	/**
 	 * Launch the application.
 	 */
@@ -70,11 +65,11 @@ public class GUI_Dashboard {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frmGui = new JFrame();
 		frmGui.getContentPane().setForeground(new Color(192, 192, 192));
 		frmGui.setAutoRequestFocus(false);			
-		frmGui.setBounds(new Rectangle(0, 0, 400, 400));
+		frmGui.setBounds(new Rectangle(0, 0, 800, 800));
 		frmGui.setType(Type.UTILITY);
 		frmGui.setTitle("Start"); 											//Titel Fenster
 		frmGui.setAlwaysOnTop(true);
@@ -83,24 +78,41 @@ public class GUI_Dashboard {
 		frmGui.getContentPane().setLayout(null);
 		
 		table_1 = new JTable();
+		table_1.setSurrendersFocusOnKeystroke(true);
+		table_1.setInheritsPopupMenu(true);
+		table_1.setIgnoreRepaint(true);
+		table_1.setFocusCycleRoot(true);
+		table_1.setFocusTraversalPolicyProvider(true);
+		table_1.setFillsViewportHeight(true);
+		table_1.setDoubleBuffered(true);
+		table_1.setDragEnabled(true);
+		table_1.setColumnSelectionAllowed(true);
+		table_1.setCellSelectionEnabled(true);
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column"
+				"Auftragsnummer", "New column", "New column", "New column", "New column", "New column", "New column"
 			}
-		));
-		table_1.setBounds(110, 100, 54, 160);
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, true, true, true, true, true, true
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table_1.setBounds(31, 51, 462, 160);
 		frmGui.getContentPane().add(table_1);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -110,148 +122,32 @@ public class GUI_Dashboard {
 		JMenu mnNewMenu = new JMenu("Menü");
 		menuBar.add(mnNewMenu);
 		
-		JButton btnNewButton_1 = new JButton("CSV Druck");
-		btnNewButton_1.setMaximumSize(new Dimension(100, 21));
-		mnNewMenu.add(btnNewButton_1);
+		JButton btnDruck = new JButton("CSV Druck");
+		btnDruck.setMinimumSize(new Dimension(200, 23));
+		btnDruck.setMaximumSize(new Dimension(200, 21));
+		mnNewMenu.add(btnDruck);
+		btnDruck.addActionListener (new DruckFensterListener ());
 		
-		JButton btnNewButton_2 = new JButton("Neuer Auftag");
-		btnNewButton_2.setMaximumSize(new Dimension(100, 21));
-		mnNewMenu.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Mitarbeiter");
-		btnNewButton_3.setMaximumSize(new Dimension(100, 21));
-		btnNewButton_3.setToolTipText("");
-		mnNewMenu.add(btnNewButton_3);
+		JButton btnAuftragFenster = new JButton("Neuer Auftag");
+		btnAuftragFenster.setMinimumSize(new Dimension(200, 23));
+		btnAuftragFenster.setMaximumSize(new Dimension(200, 21));
+		mnNewMenu.add(btnAuftragFenster);
+		btnAuftragFenster.addActionListener (new AuftragFensterListener ());
 		
-		JTextArea txtrAuftragsnr = new JTextArea();
-		txtrAuftragsnr.setText("Auftragsnr.");
-		txtrAuftragsnr.setBounds(110, 68, 54, 22);
-		frmGui.getContentPane().add(txtrAuftragsnr);
 		
-		JTextArea textArea_1_1 = new JTextArea();
-		textArea_1_1.setBounds(174, 68, 54, 22);
-		frmGui.getContentPane().add(textArea_1_1);
+		JButton btnMitarbeiter = new JButton("Mitarbeiterzugang");
+		btnMitarbeiter.setMinimumSize(new Dimension(200, 23));
+		btnMitarbeiter.setMaximumSize(new Dimension(200, 21));
+		btnMitarbeiter.setToolTipText("");
+		mnNewMenu.add(btnMitarbeiter);
+		btnMitarbeiter.addActionListener (new MitarbeiterFensterListener ());
 		
-		JTextArea textArea_1_1_1 = new JTextArea();
-		textArea_1_1_1.setBounds(238, 68, 54, 22);
-		frmGui.getContentPane().add(textArea_1_1_1);
-		
-		JTextArea textArea_1_1_1_1 = new JTextArea();
-		textArea_1_1_1_1.setBounds(302, 68, 54, 22);
-		frmGui.getContentPane().add(textArea_1_1_1_1);
-		
-		JTextArea textArea_1_1_1_1_1 = new JTextArea();
-		textArea_1_1_1_1_1.setBounds(366, 68, 54, 22);
-		frmGui.getContentPane().add(textArea_1_1_1_1_1);
-		
-		JTextArea textArea_1_1_1_1_1_1 = new JTextArea();
-		textArea_1_1_1_1_1_1.setBounds(430, 68, 54, 22);
-		frmGui.getContentPane().add(textArea_1_1_1_1_1_1);
-		
-		table_2 = new JTable();
-		table_2.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-			},
-			new String[] {
-				"New column"
-			}
-		));
-		table_2.setBounds(174, 100, 54, 160);
-		frmGui.getContentPane().add(table_2);
-		
-		table_4 = new JTable();
-		table_4.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-			},
-			new String[] {
-				"New column"
-			}
-		));
-		table_4.setBounds(238, 100, 54, 160);
-		frmGui.getContentPane().add(table_4);
-		
-		table_5 = new JTable();
-		table_5.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-			},
-			new String[] {
-				"New column"
-			}
-		));
-		table_5.setBounds(302, 100, 54, 160);
-		frmGui.getContentPane().add(table_5);
-		
-		table_6 = new JTable();
-		table_6.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-			},
-			new String[] {
-				"New column"
-			}
-		));
-		table_6.setBounds(366, 100, 54, 160);
-		frmGui.getContentPane().add(table_6);
-		
-		table_7 = new JTable();
-		table_7.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-			},
-			new String[] {
-				"New column"
-			}
-		));
-		table_7.setBounds(430, 100, 54, 160);
-		frmGui.getContentPane().add(table_7);
+		JButton btnMitarbeiterListe = new JButton("Mitarbeiterliste");
+		btnMitarbeiterListe.setMaximumSize(new Dimension(200, 23));
+		btnMitarbeiterListe.setMinimumSize(new Dimension(200, 23));
+		mnNewMenu.add(btnMitarbeiterListe);
+		btnMitarbeiterListe.addActionListener (new MitarbeiterListeFensterListener ());
 		
 		table = new JTable();
 		table.setFillsViewportHeight(true);
@@ -292,5 +188,35 @@ public class GUI_Dashboard {
 		table.setAlignmentY(1.0f);
 		table.setAlignmentX(1.0f);
 		frmGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	class AuftragFensterListener implements ActionListener {
+		public void actionPerformed (ActionEvent event) {
+			GUI_Menue.main(null);
+			frmGui.setVisible(false);
+			
+		}
+	}
+	
+	class DruckFensterListener implements ActionListener { //Noch zu erledigen
+		public void actionPerformed (ActionEvent event) {
+			//.main(null);
+			
+		}
+	}
+	
+	class MitarbeiterFensterListener implements ActionListener {
+		public void actionPerformed (ActionEvent event) {
+			GUI_Access.main(null);
+			frmGui.setVisible(false);
+			
+		}
+	}
+	class MitarbeiterListeFensterListener implements ActionListener {
+		public void actionPerformed (ActionEvent event) {
+			GUI_MitarbeiterListe.main(null);
+			frmGui.setVisible(false);
+			
+		}
 	}
 }
