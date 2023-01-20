@@ -7,9 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Window.Type;
 import javax.swing.JButton;
-import java.awt.Rectangle;
 
-public class GUI_MitarbeiterListe extends JFrame {
+public class GUI_Kunden extends JFrame {
 
 	private JPanel contentPane;
 
@@ -20,7 +19,7 @@ public class GUI_MitarbeiterListe extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI_MitarbeiterListe frame = new GUI_MitarbeiterListe();
+					GUI_Kunden frame = new GUI_Kunden();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,17 +31,18 @@ public class GUI_MitarbeiterListe extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI_MitarbeiterListe() {
+	public GUI_Kunden() {
 		setType(Type.UTILITY);
-		setTitle("MitarbeiterListe");
+		setTitle("Kunden");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();getContentPane().setLayout(null);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);getContentPane().setLayout(null);
-JButton btnZurück_MitarbeiterListe = new JButton("Zurück");
-btnZurück_MitarbeiterListe.setBounds(10, 231, 89, 23);
-contentPane.add(btnZurück_MitarbeiterListe);
+JButton btnZurück_Kunden = new JButton("Zurück");
+btnZurück_Kunden.setBounds(10, 231, 89, 23);
+contentPane.add(btnZurück_Kunden);
 	}
+
 }

@@ -149,6 +149,12 @@ public class GUI_Dashboard {
 		mnNewMenu.add(btnMitarbeiterListe);
 		btnMitarbeiterListe.addActionListener (new MitarbeiterListeFensterListener ());
 		
+		JButton btnKunden = new JButton("Kunden");
+		btnKunden.setMinimumSize(new Dimension(200, 23));
+		btnKunden.setMaximumSize(new Dimension(200, 23));
+		mnNewMenu.add(btnKunden);
+		btnKunden.addActionListener (new KundenFensterListener ());
+		
 		table = new JTable();
 		table.setFillsViewportHeight(true);
 		table.setAutoCreateRowSorter(true);
@@ -215,6 +221,13 @@ public class GUI_Dashboard {
 	class MitarbeiterListeFensterListener implements ActionListener {
 		public void actionPerformed (ActionEvent event) {
 			GUI_MitarbeiterListe.main(null);
+			frmGui.setVisible(false);
+			
+		}
+	}
+	class KundenFensterListener implements ActionListener {
+		public void actionPerformed (ActionEvent event) {
+			GUI_Kunden.main(null);
 			frmGui.setVisible(false);
 			
 		}
