@@ -15,10 +15,8 @@ public class GUI_Menue extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_4;
 	private JTextField textField_5;
 
 	/**
@@ -42,7 +40,7 @@ public class GUI_Menue extends JFrame {
 	 */
 	public GUI_Menue() {
 		setType(Type.UTILITY);
-		setTitle("Menü");
+		setTitle("Neuer Auftrag:");
 		setBounds(new Rectangle(0, 0, 400, 400));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -55,11 +53,6 @@ public class GUI_Menue extends JFrame {
  textField.setBounds(10, 47, 76, 19);
  contentPane.add(textField);
  textField.setColumns(10);
- 
- textField_1 = new JTextField();
- textField_1.setBounds(116, 47, 76, 19);
- contentPane.add(textField_1);
- textField_1.setColumns(10);
  
  textField_2 = new JTextField();
  textField_2.setBounds(222, 47, 76, 19);
@@ -79,10 +72,6 @@ public class GUI_Menue extends JFrame {
  lblNewLabel.setBounds(10, 10, 76, 13);
  contentPane.add(lblNewLabel);
  
- JLabel lblNewLabel_1 = new JLabel("Auftragsnr.");
- lblNewLabel_1.setBounds(116, 10, 76, 13);
- contentPane.add(lblNewLabel_1);
- 
  JLabel lblNewLabel_2 = new JLabel("Anliegen");
  lblNewLabel_2.setBounds(222, 10, 76, 13);
  contentPane.add(lblNewLabel_2);
@@ -91,22 +80,13 @@ public class GUI_Menue extends JFrame {
  lblNewLabel_3.setBounds(330, 10, 76, 13);
  contentPane.add(lblNewLabel_3);
  
- textField_4 = new JTextField();
- textField_4.setBounds(10, 169, 76, 19);
- contentPane.add(textField_4);
- textField_4.setColumns(10);
- 
- JLabel lblNewLabel_4 = new JLabel("Preis");
- lblNewLabel_4.setBounds(10, 126, 76, 13);
- contentPane.add(lblNewLabel_4);
- 
  textField_5 = new JTextField();
- textField_5.setBounds(116, 169, 76, 19);
+ textField_5.setBounds(116, 47, 76, 19);
  contentPane.add(textField_5);
  textField_5.setColumns(10);
  
  JLabel lblNewLabel_5 = new JLabel("Datum");
- lblNewLabel_5.setBounds(116, 126, 76, 13);
+ lblNewLabel_5.setBounds(116, 10, 76, 13);
  contentPane.add(lblNewLabel_5);
 	}
 }

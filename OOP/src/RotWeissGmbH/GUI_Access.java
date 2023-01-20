@@ -37,7 +37,7 @@ public class GUI_Access extends JFrame {
 	 */
 	public GUI_Access() {
 		setType(Type.UTILITY);
-		setTitle("Mitarbeiter");
+		setTitle("Mitarbeiterzugang");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel(); getContentPane().setLayout(null); 
