@@ -1,11 +1,18 @@
 package RotWeissGmbH;
 
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import RotWeissGmbH.GUI_MitarbeiterListe.Zurück_MitarbeiterListeListener;
+
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 public class GUI_Kunden extends JFrame {
@@ -40,9 +47,16 @@ public class GUI_Kunden extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);getContentPane().setLayout(null);
-JButton btnZurück_Kunden = new JButton("Zurück");
-btnZurück_Kunden.setBounds(10, 231, 89, 23);
-contentPane.add(btnZurück_Kunden);
+		JButton btnZurück_Kunden = new JButton("Zurück");
+		btnZurück_Kunden.setBounds(10, 231, 89, 23);
+		contentPane.add(btnZurück_Kunden);
+		btnZurück_Kunden.addActionListener (new Zurück_KundenListener ());
 	}
-
+	class Zurück_KundenListener implements ActionListener {
+		public void actionPerformed (ActionEvent event) {
+			GUI_Dashboard.main(null);
+			Window frmGui = null;
+			frmGui.setVisible(false);
+		}
+	}
 }
