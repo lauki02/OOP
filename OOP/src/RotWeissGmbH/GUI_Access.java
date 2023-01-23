@@ -1,11 +1,18 @@
 package RotWeissGmbH;
 
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import RotWeissGmbH.GUI_Menue.Zurück_NeuerAuftragListener;
+
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -15,6 +22,7 @@ public class GUI_Access extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JButton btnZurück_Mitarbeiter;
 
 	/**
 	 * Launch the application.
@@ -37,7 +45,7 @@ public class GUI_Access extends JFrame {
 	 */
 	public GUI_Access() {
 		setType(Type.UTILITY);
-		setTitle("Mitarbeiterzugang");
+		setTitle("Mitarbeiterzugang:");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel(); getContentPane().setLayout(null); 
@@ -54,7 +62,7 @@ public class GUI_Access extends JFrame {
  contentPane.add(textField);
  textField.setColumns(10);
  
- JLabel lblNewLabel_1 = new JLabel("Datzugehöriger Auftrag:");
+ JLabel lblNewLabel_1 = new JLabel("Dazugehöriger Auftrag:");
  lblNewLabel_1.setBounds(139, 78, 160, 13);
  contentPane.add(lblNewLabel_1);
  
@@ -66,5 +74,22 @@ public class GUI_Access extends JFrame {
  JButton btnNewButton = new JButton("Speichern");
  btnNewButton.setBounds(341, 232, 85, 21);
  contentPane.add(btnNewButton);
+ 
+ btnZurück_Mitarbeiter = new JButton("Zurück");
+ btnZurück_Mitarbeiter.setBounds(10, 231, 89, 23);
+ contentPane.add(btnZurück_Mitarbeiter);
+ btnZurück_Mitarbeiter.addActionListener (new Zurück_MitarbeiterListener ());
 	}
+	
+	class Zurück_MitarbeiterListener implements ActionListener {
+		public void actionPerformed (ActionEvent event) {
+			GUI_Dashboard.main(null);
+			Window frmGui = null;
+			frmGui.setVisible(false);
+			
+			}
+		}
+		
+	
 }
+

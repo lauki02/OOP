@@ -5,11 +5,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import RotWeissGmbH.GUI_Dashboard.DruckFensterListener;
+
 import java.awt.Rectangle;
+import java.awt.Window;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GUI_Menue extends JFrame {
 
@@ -18,6 +25,7 @@ public class GUI_Menue extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_5;
+	private JButton btnZurück_NeuerAuftrag;
 
 	/**
 	 * Launch the application.
@@ -39,6 +47,8 @@ public class GUI_Menue extends JFrame {
 	 * Create the frame.
 	 */
 	public GUI_Menue() {
+
+		
 		setType(Type.UTILITY);
 		setTitle("Neuer Auftrag:");
 		setBounds(new Rectangle(0, 0, 400, 400));
@@ -64,7 +74,7 @@ public class GUI_Menue extends JFrame {
  contentPane.add(textField_3);
  textField_3.setColumns(10);
  
- JButton btnNewButton = new JButton("Continue");
+ JButton btnNewButton = new JButton("Anlegen");
  btnNewButton.setBounds(330, 232, 96, 21);
  contentPane.add(btnNewButton);
  
@@ -88,5 +98,22 @@ public class GUI_Menue extends JFrame {
  JLabel lblNewLabel_5 = new JLabel("Datum");
  lblNewLabel_5.setBounds(116, 10, 76, 13);
  contentPane.add(lblNewLabel_5);
+ 
+ btnZurück_NeuerAuftrag = new JButton("Zurück");
+ btnZurück_NeuerAuftrag.setBounds(10, 231, 89, 23);
+ contentPane.add(btnZurück_NeuerAuftrag);
+ btnZurück_NeuerAuftrag.addActionListener (new Zurück_NeuerAuftragListener ());
 	}
+	
+	class Zurück_NeuerAuftragListener implements ActionListener {
+		@SuppressWarnings("null")
+		public void actionPerformed (ActionEvent event) {
+			GUI_Dashboard.main(null);
+			Window frmGui = null;
+			frmGui.setVisible(false);
+			
+		}
+	}
+	
+	
 }
