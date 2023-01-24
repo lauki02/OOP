@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class Serviceauftrag {
 	// Attribut zur Zählung der Objekte
-	private static int number = 0;
+	private static int number = 1;
 
 	// Attribute des Serviceauftrags definieren
 	private int auftragsNummer;
@@ -13,6 +13,7 @@ public class Serviceauftrag {
 	private Calendar aufgabeDatum;
 	private boolean status;
 	private int sachbearbeiter;
+	private GesamtKosten kosten;
 
 	// Setter und Getter fuer Attribute des Serviceauftrags definieren
 	public int getAuftragsNummer() {
@@ -63,25 +64,36 @@ public class Serviceauftrag {
 		this.sachbearbeiter = sachbearbeiter;
 	}
 
+	public static int getNumber() {
+		return number;
+	}
+
+	public static void setNumber(int number) {
+		Serviceauftrag.number = number;
+	}
+
 	// Konstruktoren
 	public Serviceauftrag(int parameter1, String parameter2, Calendar parameter3, int parameter4) {
-		// Auftragsnummer erzeugen
-		number++;
+		// Auftragsnummer setzen
 		setAuftragsNummer(number);
 		// übergebene Parameter zuteilen
 		setKundenNummer(parameter1);
 		setAnliegen(parameter2);
 		setAufgabeDatum(parameter3);
 		setSachbearbeiter(parameter4);
+		//Auftragsnummer fuer den naehsten Auftrag erzeugen
+		number++;
 	}
 
 	public Serviceauftrag(int parameter1, String parameter2, Calendar parameter3) {
-		// Auftragsnummer erzeugen
-		number++;
+		//Auftragsnummer setzen
 		setAuftragsNummer(number);
 		// übergebene Parameter zuteilen
 		setKundenNummer(parameter1);
 		setAnliegen(parameter2);
 		setAufgabeDatum(parameter3);
+		//Auftragsnummer fuer den naehsten Auftrag erzeugen
+		number++;
 	}
+
 }
