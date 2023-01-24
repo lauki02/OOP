@@ -17,6 +17,7 @@ import javax.swing.JTree;
 import javax.swing.JProgressBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import java.awt.Font;
@@ -32,13 +33,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JMenuBar;
 import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import java.awt.TextArea;
+import java.awt.Scrollbar;
 
 
 public class GUI_Dashboard { 
 
 	private JFrame frmGui;
 	private JTable table;
-	private JTable table_1;
 	/**
 	 * Launch the application.
 	 */
@@ -65,6 +68,7 @@ public class GUI_Dashboard {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings("serial")
 	public void initialize() {
 		frmGui = new JFrame();
 		frmGui.getContentPane().setForeground(new Color(192, 192, 192));
@@ -73,47 +77,9 @@ public class GUI_Dashboard {
 		frmGui.setType(Type.UTILITY);
 		frmGui.setTitle("Start"); 											//Titel Fenster
 		frmGui.setAlwaysOnTop(true);
-		frmGui.setBackground(new Color(192, 192, 192));
-		frmGui.getContentPane().setBackground(new Color(192, 192, 192));
+		frmGui.setBackground(new Color(255, 255, 255));
+		frmGui.getContentPane().setBackground(new Color(255, 255, 255));
 		frmGui.getContentPane().setLayout(null);
-		
-		table_1 = new JTable();
-		table_1.setSurrendersFocusOnKeystroke(true);
-		table_1.setInheritsPopupMenu(true);
-		table_1.setIgnoreRepaint(true);
-		table_1.setFocusCycleRoot(true);
-		table_1.setFocusTraversalPolicyProvider(true);
-		table_1.setFillsViewportHeight(true);
-		table_1.setDoubleBuffered(true);
-		table_1.setDragEnabled(true);
-		table_1.setColumnSelectionAllowed(true);
-		table_1.setCellSelectionEnabled(true);
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"Auftragsnummer", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {
-				false, true, true, true, true, true, true
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table_1.setBounds(31, 51, 462, 160);
-		frmGui.getContentPane().add(table_1);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 842, 22);
@@ -153,7 +119,23 @@ public class GUI_Dashboard {
 		btnKunden.setMinimumSize(new Dimension(200, 23));
 		btnKunden.setMaximumSize(new Dimension(200, 23));
 		mnNewMenu.add(btnKunden);
+		
+		JLabel Firmenname = new JLabel("Rot Weiss GmbH");                                // Firmen-Logo
+		Firmenname.setFont(new Font("Impact", Font.BOLD, 45));
+		Firmenname.setForeground(Color.blue);
+		Firmenname.setBounds(10, 32, 328, 52);
+		frmGui.getContentPane().add(Firmenname);
+		
+		JList list = new JList();                                                     //J-List 
+		list.setBounds(40, 224, 445, -111);
+		frmGui.getContentPane().add(list);
+		
+		TextArea AuftragsListe = new TextArea();
+		AuftragsListe.setBounds(10, 107, 493, 206);
+		frmGui.getContentPane().add(AuftragsListe);
 		btnKunden.addActionListener (new KundenFensterListener ());
+		ArrayList <Serviceauftrag> auftraege = new ArrayList<>();					//Array-List
+		//auftraege =  add();
 		
 		table = new JTable();
 		table.setFillsViewportHeight(true);
@@ -204,7 +186,7 @@ public class GUI_Dashboard {
 		}
 	}
 	
-	class DruckFensterListener implements ActionListener { //Noch zu erledigen
+	class DruckFensterListener implements ActionListener {            //Noch zu erledigen
 		public void actionPerformed (ActionEvent event) {
 			//.main(null);
 			

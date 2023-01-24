@@ -54,7 +54,7 @@ public class GUI_MitarbeiterListe extends JFrame {
 		 btnZurück_MitarbeiterListe.addActionListener (new Zurück_MitarbeiterListeListener ());
 	}
 	
-	class Zurück_MitarbeiterListeListener implements ActionListener {
+	class Zurück_MitarbeiterListeListener implements ActionListener {                               // Zurück-Button
 		public void actionPerformed (ActionEvent event) {
 			GUI_Dashboard.main(null);
 			Window frmGui = null;

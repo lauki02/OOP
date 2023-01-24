@@ -105,7 +105,7 @@ public class GUI_Menue extends JFrame {
  btnZurück_NeuerAuftrag.addActionListener (new Zurück_NeuerAuftragListener ());
 	}
 	
-	class Zurück_NeuerAuftragListener implements ActionListener {
+	class Zurück_NeuerAuftragListener implements ActionListener {                            // Zurück-Button
 		@SuppressWarnings("null")
 		public void actionPerformed (ActionEvent event) {
 			GUI_Dashboard.main(null);
