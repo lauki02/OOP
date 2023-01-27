@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import RotWeissGmbH.GUI_Dashboard.KundenFensterListener;
+import RotWeissGmbH.GUI_Dashboard.MitarbeiterFensterListener;
+import RotWeissGmbH.GUI_Dashboard.MitarbeiterListeFensterListener;
+
 import java.awt.ScrollPane;
 import java.awt.List;
 import javax.swing.JScrollPane;
@@ -15,17 +20,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JButton;
+import java.awt.Dimension;
+import java.awt.Window.Type;
 
 public class Test extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField NeuerAuftrag_Anliegen;
+	private JTextField NeuerAuftrag_Kunde;
+	private JTextField NeuerAuftrag_Datum;
+	private JTextField NeuerAuftrag_Mitarbeiter;
 
 	/**
 	 * Launch the application.
@@ -47,7 +54,8 @@ public class Test extends JFrame {
 	 * Create the frame.
 	 */
 	public Test() {
-		setTitle("Test");
+		setType(Type.UTILITY);
+		setTitle("NeueGUI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 779, 431);
 		contentPane = new JPanel();
@@ -60,87 +68,111 @@ public class Test extends JFrame {
 		list_1.setBounds(10, 57, 416, 300);
 		contentPane.add(list_1);
 		
-		Button button = new Button("Schließen");
-		button.addActionListener(new ActionListener() {
+		Button Schließen = new Button("Schließen");
+		Schließen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 			
 			
 		});
-		button.setBounds(10, 363, 125, 21);
-		contentPane.add(button);
+		Schließen.setBounds(10, 363, 125, 21);
+		contentPane.add(Schließen);
 		
-		Button button_1 = new Button("Speichern");
-		button_1.setBounds(141, 363, 117, 21);
-		contentPane.add(button_1);
+		Button Speichern = new Button("Speichern");
+		Speichern.setBounds(141, 363, 117, 21);
+		contentPane.add(Speichern);
 		
-		textField = new JTextField();
-		textField.setBounds(432, 57, 238, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		NeuerAuftrag_Anliegen = new JTextField();
+		NeuerAuftrag_Anliegen.setBounds(432, 95, 238, 19);
+		contentPane.add(NeuerAuftrag_Anliegen);
+		NeuerAuftrag_Anliegen.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Serviceaufträge");
-		lblNewLabel.setFont(new Font("Microsoft JhengHei UI", Font.BOLD, 38));
-		lblNewLabel.setBounds(10, 0, 416, 51);
+		lblNewLabel.setFont(new Font("Microsoft JhengHei UI", Font.BOLD, 30));
+		lblNewLabel.setBounds(465, 40, 290, 45);
 		contentPane.add(lblNewLabel);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(432, 86, 238, 19);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		NeuerAuftrag_Kunde = new JTextField();
+		NeuerAuftrag_Kunde.setBounds(432, 124, 238, 19);
+		contentPane.add(NeuerAuftrag_Kunde);
+		NeuerAuftrag_Kunde.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(432, 115, 238, 19);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		NeuerAuftrag_Datum = new JTextField();
+		NeuerAuftrag_Datum.setBounds(432, 153, 238, 19);
+		contentPane.add(NeuerAuftrag_Datum);
+		NeuerAuftrag_Datum.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(677, 57, 88, 16);
-		contentPane.add(lblNewLabel_1);
+		JLabel NeuerAuftrag_Name_1 = new JLabel("Anliegen");
+		NeuerAuftrag_Name_1.setBounds(677, 96, 88, 16);
+		contentPane.add(NeuerAuftrag_Name_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(677, 87, 93, 16);
+		JLabel lblNewLabel_2 = new JLabel("Kunde");
+		lblNewLabel_2.setBounds(677, 125, 93, 16);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(677, 118, 88, 13);
+		JLabel lblNewLabel_3 = new JLabel("Datum");
+		lblNewLabel_3.setBounds(680, 156, 88, 13);
 		contentPane.add(lblNewLabel_3);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(432, 144, 238, 19);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		NeuerAuftrag_Mitarbeiter = new JTextField();
+		NeuerAuftrag_Mitarbeiter.setBounds(432, 182, 238, 19);
+		contentPane.add(NeuerAuftrag_Mitarbeiter);
+		NeuerAuftrag_Mitarbeiter.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(677, 147, 45, 13);
+		JLabel lblNewLabel_4 = new JLabel("Mitarbeiter");
+		lblNewLabel_4.setBounds(677, 185, 88, 13);
 		contentPane.add(lblNewLabel_4);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(432, 173, 238, 19);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 842, 22);
+		contentPane.add(menuBar);
 		
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		lblNewLabel_5.setBounds(677, 176, 45, 13);
-		contentPane.add(lblNewLabel_5);
+		JMenu mnNewMenu = new JMenu("Menü");
+		menuBar.add(mnNewMenu);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(432, 206, 238, 19);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		lblNewLabel_6.setBounds(677, 209, 45, 13);
-		contentPane.add(lblNewLabel_6);
+
+		JButton btnMitarbeiter = new JButton("Mitarbeiterzugang");							//Menü-Button MitarbeiterZugang
+		btnMitarbeiter.setMinimumSize(new Dimension(200, 23));
+		btnMitarbeiter.setMaximumSize(new Dimension(200, 21));
+		btnMitarbeiter.setToolTipText("");
+		mnNewMenu.add(btnMitarbeiter);
+		btnMitarbeiter.addActionListener (new MitarbeiterZugangFensterListener ());
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(432, 235, 238, 19);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
+		JButton btnMitarbeiterListe = new JButton("Mitarbeiterliste");						//Menü-Button MitarbeiterListe
+		btnMitarbeiterListe.setMaximumSize(new Dimension(200, 23));
+		btnMitarbeiterListe.setMinimumSize(new Dimension(200, 23));
+		mnNewMenu.add(btnMitarbeiterListe);
+		btnMitarbeiterListe.addActionListener (new MitarbeiterListeFensterListener ());
 		
-		JLabel lblNewLabel_7 = new JLabel("New label");
-		lblNewLabel_7.setBounds(677, 238, 45, 13);
-		contentPane.add(lblNewLabel_7);
+		JButton btnKunden = new JButton("Kunden");											//Menü-Button Kunden
+		btnKunden.setMinimumSize(new Dimension(200, 23));
+		btnKunden.setMaximumSize(new Dimension(200, 23));
+		mnNewMenu.add(btnKunden);
+		btnKunden.addActionListener (new KundenFensterListener ());
 	}
+	
+		class MitarbeiterZugangFensterListener implements ActionListener {
+			public void actionPerformed (ActionEvent event) {
+				GUI_Access.main(null);
+				frmGui.setVisible(false);
+			
+		}
+	}
+		class MitarbeiterListeFensterListener implements ActionListener {
+			public void actionPerformed (ActionEvent event) {
+				GUI_MitarbeiterListe.main(null);
+				frmGui.setVisible(false);
+			
+		}
+	}
+		class KundenFensterListener implements ActionListener {
+			public void actionPerformed (ActionEvent event) {
+				GUI_Kunden.main(null);
+				frmGui.setVisible(false);
+			
+		}
+	}
+	
 }
