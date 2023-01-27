@@ -109,8 +109,7 @@ public class GUI_Menue extends JFrame {
 		@SuppressWarnings("null")
 		public void actionPerformed (ActionEvent event) {
 			GUI_Dashboard.main(null);
-			Window frmGui = null;
-			frmGui.setVisible(false);
+			System.exit(0);
 			
 		}
 	}

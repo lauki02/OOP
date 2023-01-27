@@ -18,6 +18,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import java.awt.Font;
@@ -36,6 +37,9 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.TextArea;
 import java.awt.Scrollbar;
+import java.awt.Cursor;
+import java.awt.ScrollPane;
+import java.awt.List;
 
 
 public class GUI_Dashboard { 
@@ -119,6 +123,7 @@ public class GUI_Dashboard {
 		btnKunden.setMinimumSize(new Dimension(200, 23));
 		btnKunden.setMaximumSize(new Dimension(200, 23));
 		mnNewMenu.add(btnKunden);
+		btnKunden.addActionListener (new KundenFensterListener ());
 		
 		JLabel Firmenname = new JLabel("Rot Weiss GmbH");                                // Firmen-Logo
 		Firmenname.setFont(new Font("Impact", Font.BOLD, 45));
@@ -126,16 +131,11 @@ public class GUI_Dashboard {
 		Firmenname.setBounds(10, 32, 328, 52);
 		frmGui.getContentPane().add(Firmenname);
 		
-		JList list = new JList();                                                     //J-List 
-		list.setBounds(40, 224, 445, -111);
+		List list = new List();
+		list.setBounds(20, 90, 512, 274);
 		frmGui.getContentPane().add(list);
-		
-		TextArea AuftragsListe = new TextArea();
-		AuftragsListe.setBounds(10, 107, 493, 206);
-		frmGui.getContentPane().add(AuftragsListe);
-		btnKunden.addActionListener (new KundenFensterListener ());
-		ArrayList <Serviceauftrag> auftraege = new ArrayList<>();					//Array-List
-		//auftraege =  add();
+		ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();					//Array-List
+		 
 		
 		table = new JTable();
 		table.setFillsViewportHeight(true);
@@ -178,6 +178,11 @@ public class GUI_Dashboard {
 		frmGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	private void auftraegeData(Object[] array) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	class AuftragFensterListener implements ActionListener {
 		public void actionPerformed (ActionEvent event) {
 			GUI_Menue.main(null);
