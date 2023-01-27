@@ -64,11 +64,13 @@ public class Test extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		List list_1 = new List();
+		List list_1 = new List();															//Schließen
 		list_1.setBounds(10, 57, 416, 300);
 		contentPane.add(list_1);
 		
-		Button Schließen = new Button("Schließen");
+		Button Schließen = new Button("Schließen");											//Schließen
+		Schließen.setBounds(10, 363, 125, 21);
+		contentPane.add(Schließen);
 		Schließen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -79,26 +81,26 @@ public class Test extends JFrame {
 		Schließen.setBounds(10, 363, 125, 21);
 		contentPane.add(Schließen);
 		
-		Button Speichern = new Button("Speichern");
+		Button Speichern = new Button("Speichern");											// Speichern
 		Speichern.setBounds(141, 363, 117, 21);
 		contentPane.add(Speichern);
 		
-		NeuerAuftrag_Anliegen = new JTextField();
+		NeuerAuftrag_Anliegen = new JTextField();											//TextField
 		NeuerAuftrag_Anliegen.setBounds(432, 95, 238, 19);
 		contentPane.add(NeuerAuftrag_Anliegen);
 		NeuerAuftrag_Anliegen.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Serviceaufträge");
+		JLabel lblNewLabel = new JLabel("Serviceaufträge");									//Überschrift
 		lblNewLabel.setFont(new Font("Microsoft JhengHei UI", Font.BOLD, 30));
 		lblNewLabel.setBounds(465, 40, 290, 45);
 		contentPane.add(lblNewLabel);
 		
-		NeuerAuftrag_Kunde = new JTextField();
+		NeuerAuftrag_Kunde = new JTextField();												//TextField
 		NeuerAuftrag_Kunde.setBounds(432, 124, 238, 19);
 		contentPane.add(NeuerAuftrag_Kunde);
 		NeuerAuftrag_Kunde.setColumns(10);
 		
-		NeuerAuftrag_Datum = new JTextField();
+		NeuerAuftrag_Datum = new JTextField();												//TextField
 		NeuerAuftrag_Datum.setBounds(432, 153, 238, 19);
 		contentPane.add(NeuerAuftrag_Datum);
 		NeuerAuftrag_Datum.setColumns(10);
@@ -153,24 +155,24 @@ public class Test extends JFrame {
 		btnKunden.addActionListener (new KundenFensterListener ());
 	}
 	
-		class MitarbeiterZugangFensterListener implements ActionListener {
+		class MitarbeiterZugangFensterListener implements ActionListener {					//ActionListener MitarbeiterZugang
 			public void actionPerformed (ActionEvent event) {
 				GUI_Access.main(null);
-				frmGui.setVisible(false);
+				//frmGui.setVisible(false);
 			
 		}
 	}
-		class MitarbeiterListeFensterListener implements ActionListener {
+		class MitarbeiterListeFensterListener implements ActionListener {					//ActionListener MitarbeiterListe
 			public void actionPerformed (ActionEvent event) {
 				GUI_MitarbeiterListe.main(null);
-				frmGui.setVisible(false);
+				//frmGui.setVisible(false);
 			
 		}
 	}
-		class KundenFensterListener implements ActionListener {
+		class KundenFensterListener implements ActionListener {								//ActionListener Kunden
 			public void actionPerformed (ActionEvent event) {
 				GUI_Kunden.main(null);
-				frmGui.setVisible(false);
+				//frmGui.setVisible(false);
 			
 		}
 	}

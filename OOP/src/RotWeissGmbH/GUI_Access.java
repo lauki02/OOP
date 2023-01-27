@@ -81,11 +81,11 @@ public class GUI_Access extends JFrame {
  btnZurück_Mitarbeiter.addActionListener (new Zurück_MitarbeiterListener ());
 	}
 	
-	class Zurück_MitarbeiterListener implements ActionListener {                   // Zurück-Button
+	class Zurück_MitarbeiterListener implements ActionListener {                   // Zurück-Button auf Test
 		public void actionPerformed (ActionEvent event) {
-			GUI_Dashboard.main(null);
-			Window frmGui = null;
-			frmGui.setVisible(false);
+			Test.main(null);
+			//Window frmGui = null;
+			//frmGui.setVisible(false);
 			
 			}
 		}

@@ -52,12 +52,12 @@ public class GUI_Kunden extends JFrame {
 		contentPane.add(btnZurück_Kunden);
 		btnZurück_Kunden.addActionListener (new Zurück_KundenListener ());
 	}
-	class Zurück_KundenListener implements ActionListener {                           // Zurück-Button
-		@SuppressWarnings("null")
+	class Zurück_KundenListener implements ActionListener {                           // Zurück-Button auf Test
+		//@SuppressWarnings("null")
 		public void actionPerformed (ActionEvent event) {
-			GUI_Dashboard.main(null);
-			Window frmGui = null;
-			frmGui.setVisible(false);
+			Test.main(null);
+			//Window frmGui = null;
+			//frmGui.setVisible(false);
 		}
 	}
 }
