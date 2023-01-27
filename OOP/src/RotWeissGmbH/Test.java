@@ -6,9 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import RotWeissGmbH.GUI_Dashboard.KundenFensterListener;
-import RotWeissGmbH.GUI_Dashboard.MitarbeiterFensterListener;
-import RotWeissGmbH.GUI_Dashboard.MitarbeiterListeFensterListener;
+//import RotWeissGmbH.GUI_Dashboard.KundenFensterListener;
+//import RotWeissGmbH.GUI_Dashboard.MitarbeiterFensterListener;
+//import RotWeissGmbH.GUI_Dashboard.MitarbeiterListeFensterListener;
 
 import java.awt.ScrollPane;
 import java.awt.List;
@@ -64,7 +64,7 @@ public class Test extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		List list_1 = new List();															//Schließen
+		List list_1 = new List();															//Liste
 		list_1.setBounds(10, 57, 416, 300);
 		contentPane.add(list_1);
 		
@@ -78,8 +78,7 @@ public class Test extends JFrame {
 			
 			
 		});
-		Schließen.setBounds(10, 363, 125, 21);
-		contentPane.add(Schließen);
+		
 		
 		Button Speichern = new Button("Speichern");											// Speichern
 		Speichern.setBounds(141, 363, 117, 21);
