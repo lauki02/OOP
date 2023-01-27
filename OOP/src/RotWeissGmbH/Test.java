@@ -11,16 +11,21 @@ import javax.swing.border.EmptyBorder;
 //import RotWeissGmbH.GUI_Dashboard.MitarbeiterListeFensterListener;
 
 import java.awt.ScrollPane;
+import java.awt.Window;
 import java.awt.List;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import java.awt.Button;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JButton;
 import java.awt.Dimension;
@@ -175,5 +180,58 @@ public class Test extends JFrame {
 			
 		}
 	}
+		
+		
+		class SpeichernListener implements ActionListener {
+			public void actionPerformed (ActionEvent event) {
+				
+				//Pruefen ob die eingegebene MitarbeiterNummer eine Zahl ist
+				int MitarbeiterNummer;
+				try {
+					MitarbeiterNummer = Integer.parseInt(NeuerAuftrag_Mitarbeiter.getText());
+				} catch (Exception e){
+					JOptionPane.showMessageDialog(null,  "Die eingegebene Mitarbeiternummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				//Pruefen ob die eingegebene KundenNummer eine Zahl ist
+				int KundenNummer;
+				try {
+					KundenNummer = Integer.parseInt(NeuerAuftrag_Kunde.getText());
+				} catch (Exception e){
+					JOptionPane.showMessageDialog(null,  "Die eingegebene Kundennummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				//Pruefen ob die eingegebene Datum korrekt ist
+				Date Datum;
+				try {
+					SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+					Datum = sdf.parse(NeuerAuftrag_Datum.getText());
+				} catch (Exception e){
+					JOptionPane.showMessageDialog(null,  "Das eingegebene Datum entspricht nicht dem Format TT.MM.JJJJ!", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+		
+				
+				
+				
+				int nummer;
+				
+				try {
+					nummer = Serviceauftrag.getNumber ();
+					if (NeuerAuftrag_Mitarbeiter==null) {
+						Serviceauftrag nummer = new Serviceauftrag (NeuerAuftrag_Kunde, NeuerAuftrag_Anliegen, NeuerAuftrag_Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
+					}
+					else {
+						Serviceauftrag nummer = new Serviceauftrag (NeuerAuftrag_Kunde, NeuerAuftrag_Anliegen, NeuerAuftrag_Datum, NeuerAuftrag_Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
+					}
+					
+					
+
+				}
+				catch {
+					
+				}
+			}
+		}
 	
 }
