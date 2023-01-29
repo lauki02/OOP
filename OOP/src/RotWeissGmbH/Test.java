@@ -88,8 +88,9 @@ public class Test extends JFrame {
 		Button Speichern = new Button("Speichern");											// Speichern
 		Speichern.setBounds(141, 363, 117, 21);
 		contentPane.add(Speichern);
+		Speichern.addActionListener(new SpeichernListener());
 		
-		NeuerAuftrag_Anliegen = new JTextField();											//TextField
+		NeuerAuftrag_Anliegen = new JTextField();											//TextField Anliegen
 		NeuerAuftrag_Anliegen.setBounds(432, 95, 238, 19);
 		contentPane.add(NeuerAuftrag_Anliegen);
 		NeuerAuftrag_Anliegen.setColumns(10);
@@ -99,12 +100,12 @@ public class Test extends JFrame {
 		lblNewLabel.setBounds(465, 40, 290, 45);
 		contentPane.add(lblNewLabel);
 		
-		NeuerAuftrag_Kunde = new JTextField();												//TextField
+		NeuerAuftrag_Kunde = new JTextField();												//TextField Kunde
 		NeuerAuftrag_Kunde.setBounds(432, 124, 238, 19);
 		contentPane.add(NeuerAuftrag_Kunde);
 		NeuerAuftrag_Kunde.setColumns(10);
 		
-		NeuerAuftrag_Datum = new JTextField();												//TextField
+		NeuerAuftrag_Datum = new JTextField();												//TextField Datum
 		NeuerAuftrag_Datum.setBounds(432, 153, 238, 19);
 		contentPane.add(NeuerAuftrag_Datum);
 		NeuerAuftrag_Datum.setColumns(10);
@@ -191,6 +192,7 @@ public class Test extends JFrame {
 					MitarbeiterNummer = Integer.parseInt(NeuerAuftrag_Mitarbeiter.getText());
 				} catch (Exception e){
 					JOptionPane.showMessageDialog(null,  "Die eingegebene Mitarbeiternummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
+					MitarbeiterNummer=0;
 				}
 				
 				//Pruefen ob die eingegebene KundenNummer eine Zahl ist
@@ -199,15 +201,17 @@ public class Test extends JFrame {
 					KundenNummer = Integer.parseInt(NeuerAuftrag_Kunde.getText());
 				} catch (Exception e){
 					JOptionPane.showMessageDialog(null,  "Die eingegebene Kundennummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
+					KundenNummer=0;
 				}
 				
 				//Pruefen ob das eingegebene Datum korrekt ist
-				Date Datum;
+				Date Datum = null;
 				try {
-					SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+					SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 					Datum = sdf.parse(NeuerAuftrag_Datum.getText());
 				} catch (Exception e){
 					JOptionPane.showMessageDialog(null,  "Das eingegebene Datum entspricht nicht dem Format TT.MM.JJJJ!", "Error", JOptionPane.ERROR_MESSAGE);
+				
 				}
 				
 				//Pruefen ob die eingegebene Zahl eine Zahl ist
@@ -216,6 +220,7 @@ public class Test extends JFrame {
 					Mitarbeiter = Integer.parseInt(NeuerAuftrag_Mitarbeiter.getText());
 				} catch (Exception e){
 					JOptionPane.showMessageDialog(null,  "Die eingegebene Mitarbeiternummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
+					Mitarbeiter=0;
 				}
 		
 				//Anliegen in einen String verwandeln
@@ -224,15 +229,15 @@ public class Test extends JFrame {
 				
 				
 				
-				int nummer;
+				int nummer=0;
 				
 				try {
 					nummer = Serviceauftrag.getNumber ();
 					if (NeuerAuftrag_Mitarbeiter==null) {
-						Serviceauftrag nummer = new Serviceauftrag (KundenNummer, Anliegen, Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
+						//Serviceauftrag  = new Serviceauftrag (KundenNummer, Anliegen, Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
 					}
 					else {
-						Serviceauftrag nummer = new Serviceauftrag (KundenNummer, Anliegen, Datum, Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
+						//Serviceauftrag  = new Serviceauftrag (KundenNummer, Anliegen, Datum, Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
 					}
 					
 					
@@ -241,6 +246,7 @@ public class Test extends JFrame {
 				finally {
 					 JOptionPane.showMessageDialog (null, "Die eingegebenen Daten sind nicht vollstaendig!", "Error", JOptionPane.ERROR_MESSAGE);
 				}
+				
 			}
 		}
 	
