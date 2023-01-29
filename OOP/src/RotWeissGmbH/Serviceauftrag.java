@@ -1,6 +1,6 @@
 package RotWeissGmbH;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class Serviceauftrag {
 	// Attribut zur Zählung der Objekte
@@ -10,7 +10,7 @@ public class Serviceauftrag {
 	private int auftragsNummer;
 	private int kundenNummer;
 	private String anliegen;
-	private Calendar aufgabeDatum;
+	private Date aufgabeDatum;
 	private boolean status;
 	private int sachbearbeiter;
 	private GesamtKosten kosten;
@@ -40,11 +40,11 @@ public class Serviceauftrag {
 		this.anliegen = anliegen;
 	}
 
-	public Calendar getAufgabeDatum() {
+	public Date getAufgabeDatum() {
 		return aufgabeDatum;
 	}
 
-	public void setAufgabeDatum(Calendar aufgabeDatum) {
+	public void setAufgabeDatum(Date aufgabeDatum) {
 		this.aufgabeDatum = aufgabeDatum;
 	}
 
@@ -73,7 +73,7 @@ public class Serviceauftrag {
 	}
 
 	// Konstruktoren
-	public Serviceauftrag(int parameter1, String parameter2, Calendar parameter3, int parameter4) {
+	public Serviceauftrag(int parameter1, String parameter2, Date parameter3, int parameter4) {
 		// Auftragsnummer setzen
 		setAuftragsNummer(number);
 		// übergebene Parameter zuteilen
@@ -85,7 +85,7 @@ public class Serviceauftrag {
 		number++;
 	}
 
-	public Serviceauftrag(int parameter1, String parameter2, Calendar parameter3) {
+	public Serviceauftrag(int parameter1, String parameter2, Date parameter3) {
 		//Auftragsnummer setzen
 		setAuftragsNummer(number);
 		// übergebene Parameter zuteilen

@@ -181,7 +181,7 @@ public class Test extends JFrame {
 		}
 	}
 		
-		
+		//Aktion für den Speichern-Knopf
 		class SpeichernListener implements ActionListener {
 			public void actionPerformed (ActionEvent event) {
 				
@@ -201,7 +201,7 @@ public class Test extends JFrame {
 					JOptionPane.showMessageDialog(null,  "Die eingegebene Kundennummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				
-				//Pruefen ob die eingegebene Datum korrekt ist
+				//Pruefen ob das eingegebene Datum korrekt ist
 				Date Datum;
 				try {
 					SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -210,7 +210,17 @@ public class Test extends JFrame {
 					JOptionPane.showMessageDialog(null,  "Das eingegebene Datum entspricht nicht dem Format TT.MM.JJJJ!", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				
+				//Pruefen ob die eingegebene Zahl eine Zahl ist
+				int Mitarbeiter;
+				try {
+					Mitarbeiter = Integer.parseInt(NeuerAuftrag_Mitarbeiter.getText());
+				} catch (Exception e){
+					JOptionPane.showMessageDialog(null,  "Die eingegebene Mitarbeiternummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
+				}
 		
+				//Anliegen in einen String verwandeln
+				String Anliegen;
+				Anliegen = NeuerAuftrag_Mitarbeiter.getText();
 				
 				
 				
@@ -219,17 +229,17 @@ public class Test extends JFrame {
 				try {
 					nummer = Serviceauftrag.getNumber ();
 					if (NeuerAuftrag_Mitarbeiter==null) {
-						Serviceauftrag nummer = new Serviceauftrag (NeuerAuftrag_Kunde, NeuerAuftrag_Anliegen, NeuerAuftrag_Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
+						Serviceauftrag nummer = new Serviceauftrag (KundenNummer, Anliegen, Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
 					}
 					else {
-						Serviceauftrag nummer = new Serviceauftrag (NeuerAuftrag_Kunde, NeuerAuftrag_Anliegen, NeuerAuftrag_Datum, NeuerAuftrag_Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
+						Serviceauftrag nummer = new Serviceauftrag (KundenNummer, Anliegen, Datum, Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
 					}
 					
 					
 
 				}
-				catch {
-					
+				finally {
+					 JOptionPane.showMessageDialog (null, "Die eingegebenen Daten sind nicht vollstaendig!", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
