@@ -214,14 +214,7 @@ public class Test extends JFrame {
 				
 				}
 				
-				//Pruefen ob die eingegebene Zahl eine Zahl ist
-				int Mitarbeiter;
-				try {
-					Mitarbeiter = Integer.parseInt(NeuerAuftrag_Mitarbeiter.getText());
-				} catch (Exception e){
-					JOptionPane.showMessageDialog(null,  "Die eingegebene Mitarbeiternummer ist keine Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
-					Mitarbeiter=0;
-				}
+	
 		
 				//Anliegen in einen String verwandeln
 				String Anliegen;
