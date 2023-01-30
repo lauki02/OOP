@@ -4,7 +4,9 @@ import java.awt.EventQueue;
 import java.awt.Window;
 
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
 import RotWeissGmbH.GUI_MitarbeiterListe.Zurück_MitarbeiterListeListener;
@@ -51,8 +53,18 @@ public class GUI_Kunden extends JFrame {
 		btnZurück_Kunden.setBounds(10, 231, 89, 23);
 		contentPane.add(btnZurück_Kunden);
 		btnZurück_Kunden.addActionListener (new Zurück_KundenListener ());
+		
+		JList list_3 = new JList();																			//Liste
+		list_3.setBounds(10, 10, 416, 211); 
+		contentPane.add(list_3);
+		list_3.setVisibleRowCount(10); 
+		list_3.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		
+		
 	}
-	class Zurück_KundenListener implements ActionListener {                           // Zurück-Button auf Test
+	
+	class Zurück_KundenListener implements ActionListener {                         					  // Zurück-Button auf Test
 		//@SuppressWarnings("null")
 		public void actionPerformed (ActionEvent event) {
 			Test.main(null);

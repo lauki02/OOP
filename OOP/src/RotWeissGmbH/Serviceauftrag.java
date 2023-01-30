@@ -1,5 +1,6 @@
 package RotWeissGmbH;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Serviceauftrag {
@@ -94,6 +95,11 @@ public class Serviceauftrag {
 		setAufgabeDatum(parameter3);
 		//Auftragsnummer fuer den naehsten Auftrag erzeugen
 		number++;
+	}
+
+	public static void add(ArrayList<Serviceauftrag> auftraege) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
