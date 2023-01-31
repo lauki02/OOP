@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionListener;
 
 //import RotWeissGmbH.GUI_Dashboard.KundenFensterListener;
 //import RotWeissGmbH.GUI_Dashboard.MitarbeiterFensterListener;
@@ -18,10 +19,12 @@ import javax.swing.JList;
 import java.awt.Button;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JMenuBar;
@@ -69,9 +72,18 @@ public class Test extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		List list_1 = new List();															//Liste
-		list_1.setBounds(10, 57, 416, 300);
+		JList list_1 = new JList();															//Liste
+		list_1.setBounds(10, 57, 416, 300); 
 		contentPane.add(list_1);
+		list_1.setVisibleRowCount(10); 
+		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		//list_1.addListSelectionListener((ListSelectionListener) this);
+		ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();		
+	
+		
+		
+		
+		
 		
 		Button Schließen = new Button("Schließen");											//Schließen
 		Schließen.setBounds(10, 363, 125, 21);
@@ -158,6 +170,11 @@ public class Test extends JFrame {
 		btnKunden.setMaximumSize(new Dimension(200, 23));
 		mnNewMenu.add(btnKunden);
 		btnKunden.addActionListener (new KundenFensterListener ());
+		
+		Button CSV = new Button("CSV");
+		CSV.setBounds(264, 363, 117, 21);
+		contentPane.add(CSV);
+		CSV.addActionListener (new CSVListener ());
 	}
 	
 		class MitarbeiterZugangFensterListener implements ActionListener {					//ActionListener MitarbeiterZugang
@@ -181,6 +198,15 @@ public class Test extends JFrame {
 			
 		}
 	}
+		class CSVListener implements ActionListener {								//ActionListener Kunden
+			public void actionPerformed (ActionEvent event) {
+				JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
+			
+		}
+	}
+		
+		
+		
 		
 		//Aktion für den Speichern-Knopf
 		class SpeichernListener implements ActionListener {
@@ -227,13 +253,12 @@ public class Test extends JFrame {
 				try {
 					nummer = Serviceauftrag.getNumber ();
 					if (NeuerAuftrag_Mitarbeiter==null) {
-						//Serviceauftrag  = new Serviceauftrag (KundenNummer, Anliegen, Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
+						//Serviceauftrag = new Serviceauftrag (KundenNummer, Anliegen, Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
 					}
 					else {
-						//Serviceauftrag  = new Serviceauftrag (KundenNummer, Anliegen, Datum, Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
+						//Serviceauftrag = new Serviceauftrag (KundenNummer, Anliegen, Datum, Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
 					}
-					
-					
+				
 
 				}
 				finally {
@@ -242,5 +267,4 @@ public class Test extends JFrame {
 				
 			}
 		}
-	
 }
