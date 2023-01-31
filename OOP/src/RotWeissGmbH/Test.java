@@ -171,7 +171,7 @@ public class Test extends JFrame {
 		mnNewMenu.add(btnKunden);
 		btnKunden.addActionListener (new KundenFensterListener ());
 		
-		Button CSV = new Button("CSV");
+		Button CSV = new Button("CSV");														//CSV-Button
 		CSV.setBounds(264, 363, 117, 21);
 		contentPane.add(CSV);
 		CSV.addActionListener (new CSVListener ());
@@ -198,7 +198,7 @@ public class Test extends JFrame {
 			
 		}
 	}
-		class CSVListener implements ActionListener {								//ActionListener Kunden
+		class CSVListener implements ActionListener {											//ActionListener CSV
 			public void actionPerformed (ActionEvent event) {
 				JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
 			
