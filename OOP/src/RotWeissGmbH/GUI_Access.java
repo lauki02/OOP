@@ -72,7 +72,7 @@ public class GUI_Access extends JFrame {
  textField_1.setColumns(10);
  
  JButton btnNewButton = new JButton("Speichern");
- btnNewButton.setBounds(341, 232, 85, 21);
+ btnNewButton.setBounds(316, 232, 110, 21);
  contentPane.add(btnNewButton);
  
  btnZurück_Mitarbeiter = new JButton("Zurück");
