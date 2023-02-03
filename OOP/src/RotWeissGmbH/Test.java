@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionListener;
 
-//import RotWeissGmbH.GUI_Dashboard.KundenFensterListener;
+import RotWeissGmbH.Serviceauftrag;
 //import RotWeissGmbH.GUI_Dashboard.MitarbeiterFensterListener;
 //import RotWeissGmbH.GUI_Dashboard.MitarbeiterListeFensterListener;
 
@@ -41,6 +41,8 @@ public class Test extends JFrame {
 	private JTextField NeuerAuftrag_Kunde;
 	private JTextField NeuerAuftrag_Datum;
 	private JTextField NeuerAuftrag_Mitarbeiter;
+	ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();				//ArrayList
+	JList<Serviceauftrag> list_1 = new JList<Serviceauftrag>();							//JList
 
 	/**
 	 * Launch the application.
@@ -72,15 +74,18 @@ public class Test extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JList list_1 = new JList();															//Liste
-		list_1.setBounds(10, 57, 416, 300); 
+																	
+		list_1.setBounds(10, 57, 416, 300); 						//Liste daten
 		contentPane.add(list_1);
 		list_1.setVisibleRowCount(10); 
 		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//list_1.addListSelectionListener((ListSelectionListener) this);
-		ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();		
-	
 		
+			
+		
+		JScrollPane SAScroll = new JScrollPane();
+		SAScroll.createVerticalScrollBar();
+		SAScroll.createHorizontalScrollBar();
+		SAScroll.add(list_1);
 		
 		
 		
@@ -95,6 +100,8 @@ public class Test extends JFrame {
 			
 			
 		});
+		
+		
 		
 		
 		Button Speichern = new Button("Speichern");											// Speichern
@@ -211,6 +218,7 @@ public class Test extends JFrame {
 		//Aktion für den Speichern-Knopf
 		class SpeichernListener implements ActionListener {
 			public void actionPerformed (ActionEvent event) {
+							
 				
 				//Pruefen ob die eingegebene MitarbeiterNummer eine Zahl ist
 				int MitarbeiterNummer;
@@ -247,24 +255,30 @@ public class Test extends JFrame {
 				Anliegen = NeuerAuftrag_Mitarbeiter.getText();
 				
 				
+				if (KundenNummer!=0 && Anliegen != null && Datum != null) {
 				
-				int nummer=0;
-				
-				try {
-					nummer = Serviceauftrag.getNumber ();
 					if (NeuerAuftrag_Mitarbeiter==null) {
-						//Serviceauftrag = new Serviceauftrag (KundenNummer, Anliegen, Datum); //Anlegen eines neuen Serviceauftrags für int, String, Calendar	
+						Serviceauftrag neu = new Serviceauftrag (KundenNummer, Anliegen, Datum);						//Anlegen eines neuen Serviceauftrags für int, String, Calendar	
+						auftraege.add(neu);																				//Speicher in der ArrayList
 					}
 					else {
-						//Serviceauftrag = new Serviceauftrag (KundenNummer, Anliegen, Datum, Mitarbeiter); //Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
+						Serviceauftrag neu = new Serviceauftrag (KundenNummer, Anliegen, Datum, MitarbeiterNummer); 	//Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
+						auftraege.add(neu);																				//Speicher in der ArrayList
 					}
+				}
 				
-
-				}
-				finally {
-					 JOptionPane.showMessageDialog (null, "Die eingegebenen Daten sind nicht vollstaendig!", "Error", JOptionPane.ERROR_MESSAGE);
-				}
+				
+				
+			
+		//updaten();
+				System.out.println(auftraege);
 				
 			}
 		}
+		
+		public void updaten () {
+			list_1.setListData(auftraege.toArray());
+	}
+		
 }
+
