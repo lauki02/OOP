@@ -82,11 +82,7 @@ public class Test extends JFrame {
 		
 			
 		
-		JScrollPane SAScroll = new JScrollPane();
-		SAScroll.createVerticalScrollBar();
-		SAScroll.createHorizontalScrollBar();
-		SAScroll.add(list_1);
-		
+			
 		
 		
 		
@@ -270,14 +266,14 @@ public class Test extends JFrame {
 				
 				
 			
-		//updaten();
+	//			updaten();
 				System.out.println(auftraege);
 				
 			}
 		}
 		
 		public void updaten () {
-			list_1.setListData(auftraege.toArray());
+			list_1.setListData((Serviceauftrag[]) auftraege.toArray());
 	}
 		
 }
