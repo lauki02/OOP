@@ -13,6 +13,7 @@ import RotWeissGmbH.GUI_Menue.Zurück_NeuerAuftragListener;
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import java.awt.Rectangle;
@@ -25,6 +26,7 @@ public class GUI_MitarbeiterListe extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private ArrayList <Mitarbeiter> mitarbeiterListe = new ArrayList <Mitarbeiter> ();
 
 	/**
 	 * Launch the application.

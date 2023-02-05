@@ -36,13 +36,13 @@ import java.awt.Window.Type;
 
 public class Test extends JFrame {
 
-	private JPanel contentPane;
+	private JFrame contentPane;
 	private JTextField NeuerAuftrag_Anliegen;
 	private JTextField NeuerAuftrag_Kunde;
 	private JTextField NeuerAuftrag_Datum;
 	private JTextField NeuerAuftrag_Mitarbeiter;
-	ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();				//ArrayList
-	JList<Serviceauftrag> list_1 = new JList<Serviceauftrag>();							//JList
+	private ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();				//ArrayList
+	private JList list_1 = new JList();							//JList
 
 	/**
 	 * Launch the application.
@@ -68,22 +68,24 @@ public class Test extends JFrame {
 		setTitle("NeueGUI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 779, 431);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));getContentPane().setLayout(null);
+		//contentPane.add(SAScroll);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.add(new JLabel("Aufträge"));
 		
 																	
-		list_1.setBounds(10, 57, 416, 300); 						//Liste daten
-		contentPane.add(list_1);
-		list_1.setVisibleRowCount(10); 
 		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 			
 		
-			
+		JScrollPane SAScroll = new JScrollPane(list_1);
 		
+		SAScroll.add(list_1);
+		SAScroll.setPreferredSize(new Dimension(300,300));
+
 		
 		
 		Button Schließen = new Button("Schließen");											//Schließen
@@ -266,14 +268,14 @@ public class Test extends JFrame {
 				
 				
 			
-	//			updaten();
+		//updaten();
 				System.out.println(auftraege);
 				
 			}
 		}
 		
 		public void updaten () {
-			list_1.setListData((Serviceauftrag[]) auftraege.toArray());
+			list_1.setListData(auftraege.toArray());
 	}
 		
 }
