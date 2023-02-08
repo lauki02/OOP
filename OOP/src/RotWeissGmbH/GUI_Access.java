@@ -22,7 +22,7 @@ public class GUI_Access extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JButton btnZurück_Mitarbeiter;
+	private JButton btnBack_Mitarbeiter;
 
 	/**
 	 * Launch the application.
@@ -62,7 +62,7 @@ public class GUI_Access extends JFrame {
  contentPane.add(textField);
  textField.setColumns(10);
  
- JLabel lblNewLabel_1 = new JLabel("Dazugehöriger Auftrag:");
+ JLabel lblNewLabel_1 = new JLabel("Auftrag:");
  lblNewLabel_1.setBounds(139, 78, 160, 13);
  contentPane.add(lblNewLabel_1);
  
@@ -75,13 +75,13 @@ public class GUI_Access extends JFrame {
  btnNewButton.setBounds(316, 232, 110, 21);
  contentPane.add(btnNewButton);
  
- btnZurück_Mitarbeiter = new JButton("Zurück");
- btnZurück_Mitarbeiter.setBounds(10, 231, 89, 23);
- contentPane.add(btnZurück_Mitarbeiter);
- btnZurück_Mitarbeiter.addActionListener (new Zurück_MitarbeiterListener ());
+ btnBack_Mitarbeiter = new JButton("Back");
+ btnBack_Mitarbeiter.setBounds(10, 231, 89, 23);
+ contentPane.add(btnBack_Mitarbeiter);
+ btnBack_Mitarbeiter.addActionListener (new Back_MitarbeiterListener ());
 	}
 	
-	class Zurück_MitarbeiterListener implements ActionListener {                   // Zurück-Button auf Test
+	class Back_MitarbeiterListener implements ActionListener {                   // Zurück-Button auf Test
 		public void actionPerformed (ActionEvent event) {
 			Test.main(null);
 			//Window frmGui = null;

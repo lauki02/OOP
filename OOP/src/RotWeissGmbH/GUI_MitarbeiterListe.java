@@ -56,10 +56,10 @@ public class GUI_MitarbeiterListe extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);getContentPane().setLayout(null);
-		JButton btnZurück_MitarbeiterListe = new JButton("Zurück");
-		btnZurück_MitarbeiterListe.setBounds(10, 361, 89, 23);
-		contentPane.add(btnZurück_MitarbeiterListe);
-		 btnZurück_MitarbeiterListe.addActionListener (new Zurück_MitarbeiterListeListener ());
+		JButton btnBack_MitarbeiterListe = new JButton("Back");
+		btnBack_MitarbeiterListe.setBounds(10, 361, 89, 23);
+		contentPane.add(btnBack_MitarbeiterListe);
+		 btnBack_MitarbeiterListe.addActionListener (new Back_MitarbeiterListeListener ());
 		 
 		 	 
 	JList list_2 = new JList();																			//Liste
@@ -86,19 +86,22 @@ public class GUI_MitarbeiterListe extends JFrame {
 	contentPane.add(textField_1);
 	textField_1.setColumns(10);
 	
-	JButton btnNewButton = new JButton("Löschen");
+	JButton btnNewButton = new JButton("Delete");
 	btnNewButton.setBounds(436, 330, 96, 21);
 	contentPane.add(btnNewButton);
+	
+	JButton btnNewButton_1 = new JButton("Speichern");
+	btnNewButton_1.setBounds(542, 329, 96, 23);
+	contentPane.add(btnNewButton_1);
 	
 	
 	
 	}
 	
-	class Zurück_MitarbeiterListeListener implements ActionListener {                              	 	// Zurück-Button auf Test
+	class Back_MitarbeiterListeListener implements ActionListener {                              	 	// Back-Button auf Test
 		public void actionPerformed (ActionEvent event) {
 			Test.main(null);
-			//Window frmGui = null;
-			//frmGui.setVisible(false);
+			
 		}
 	}
 }

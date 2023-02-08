@@ -14,21 +14,28 @@ public class CSVWriter {
 		File CSV_Serviceauftraege = new File ("Serviceauftraege.csv"); 
 		//CSV_Serviceauftraege.createNewFile();
 		//CSV_Serviceauftraege.getAbsolutePath();
-		
-		//ArrayList <Serviceauftrag> auftraege = CSVDatei();
+		public ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>()
+		//void listInDatei(auftraege, new File("/desktop/list.txt")); 
+		CSV_Serviceauftraege = auftraege; 
 		
 		
 		try {
 			
 			FileWriter Writer = new FileWriter("c:\\\\test\\\\monitor.csv");
-			//Writer.writeAll();
-			Writer.write("Kundennummer;Auftragsnummer;Datum;Mitarbeiter;Kosten");
+			Writer.export(auftraege);
 			Writer.close();
-			
+			 private static void listInDatei(List list, File datei) {
+			        PrintWriter printWriter = null;
+			        try {
+			            printWriter = new PrintWriter(new FileWriter(datei));
+			            Iterator iter = list.iterator();
+			            while(iter.hasNext() ) {
+			                Object o = iter.next();
+			                printWriter.println(o); 
 		
 		} catch (IOException e) {
 			
-			//e.printStackTrace();
+			e.printStackTrace();
 		
 		}
 	

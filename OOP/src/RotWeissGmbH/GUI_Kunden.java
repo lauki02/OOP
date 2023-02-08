@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
-import RotWeissGmbH.GUI_MitarbeiterListe.Zurück_MitarbeiterListeListener;
+//import RotWeissGmbH.GUI_MitarbeiterListe.Zurück_MitarbeiterListeListener;
 
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
@@ -53,10 +53,10 @@ public class GUI_Kunden extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);getContentPane().setLayout(null);
-		JButton btnZurück_Kunden = new JButton("Zurück");
-		btnZurück_Kunden.setBounds(10, 361, 89, 23);
-		contentPane.add(btnZurück_Kunden);
-		btnZurück_Kunden.addActionListener (new Zurück_KundenListener ());
+		JButton btnBack_Kunden = new JButton("Back");
+		btnBack_Kunden.setBounds(10, 361, 89, 23);
+		contentPane.add(btnBack_Kunden);
+		btnBack_Kunden.addActionListener (new Back_KundenListener ());
 		
 		JList list_3 = new JList();																			//Liste
 		list_3.setBounds(10, 10, 416, 341); 
@@ -82,15 +82,19 @@ public class GUI_Kunden extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Löschen");
+		JButton btnNewButton = new JButton("Delete");
 		btnNewButton.setBounds(436, 330, 96, 21);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Speichern");
+		btnNewButton_1.setBounds(542, 329, 96, 23);
+		contentPane.add(btnNewButton_1);
 		
 		
 		
 	}
 	
-	class Zurück_KundenListener implements ActionListener {                         					  // Zurück-Button auf Test
+	class Back_KundenListener implements ActionListener {                         					  // Back-Button auf Test
 		//@SuppressWarnings("null")
 		public void actionPerformed (ActionEvent event) {
 			Test.main(null);

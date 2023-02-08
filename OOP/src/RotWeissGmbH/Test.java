@@ -1,4 +1,5 @@
 package RotWeissGmbH;
+import java.awt.*;
 
 import java.awt.EventQueue;
 
@@ -33,16 +34,17 @@ import javax.swing.JMenu;
 import javax.swing.JButton;
 import java.awt.Dimension;
 import java.awt.Window.Type;
+import java.util.*;
 
 public class Test extends JFrame {
 
-	private JFrame contentPane;
+	public JFrame ContentPane;
 	private JTextField NeuerAuftrag_Anliegen;
 	private JTextField NeuerAuftrag_Kunde;
 	private JTextField NeuerAuftrag_Datum;
 	private JTextField NeuerAuftrag_Mitarbeiter;
-	private ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();				//ArrayList
-	private JList list_1 = new JList();							//JList
+	public ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();				//ArrayList
+	public JList<?> list_1 = new JList();							//JList
 
 	/**
 	 * Launch the application.
@@ -70,7 +72,7 @@ public class Test extends JFrame {
 		setBounds(100, 100, 779, 431);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));getContentPane().setLayout(null);
-		//contentPane.add(SAScroll);
+		//contentPane.add(ScrollPane);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -275,7 +277,7 @@ public class Test extends JFrame {
 		}
 		
 		public void updaten () {
-			list_1.setListData(auftraege.toArray());
+			//ScrollPane.setListData(auftraege.toArray());
 	}
 		
 }
