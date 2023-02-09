@@ -277,7 +277,7 @@ public class Test extends JFrame {
 		}
 		
 		public void updaten () {
-			//ScrollPane.setListData(auftraege.toArray());
+			list_1.setListData(auftraege.toArray());
 	}
 		
 }
