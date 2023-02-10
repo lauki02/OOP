@@ -66,7 +66,7 @@ public class GUI_Kunden extends JFrame {
 		contentPane.add(btnBack_Kunden);
 		btnBack_Kunden.addActionListener (new Back_KundenListener ());
 		
-		list_3 = new JList();																			//Liste
+		list_3 = new JList ();																			//Liste
 		list_3.setBounds(10, 10, 416, 341); 
 		contentPane.add(list_3);
 		list_3.setVisibleRowCount(10); 
