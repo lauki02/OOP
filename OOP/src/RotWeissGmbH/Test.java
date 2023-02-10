@@ -29,9 +29,8 @@ public class Test extends JFrame {
 	private JTextField NeuerAuftrag_Kunde;
 	private JTextField NeuerAuftrag_Datum;
 	private JTextField NeuerAuftrag_Mitarbeiter;
-	public 	ArrayList <Serviceauftrag> auftraege;// = new ArrayList<Serviceauftrag>();				//ArrayList
-	public 	JList<Object> list_1;//= new JList((ListModel) auftraege);							//JList
-
+	public 	ArrayList <Serviceauftrag> auftraege;
+	public 	JList list_1;
 	/**
 	 * Launch the application.
 	 */
@@ -53,31 +52,30 @@ public class Test extends JFrame {
 	 */
 	public Test() {
 		auftraege = new ArrayList<Serviceauftrag>();
-		list_1 = new JList<Object>();
+		list_1 = new JList();
 		setType(Type.UTILITY);
 		setTitle("NeueGUI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 779, 431);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));getContentPane().setLayout(null);
-		//contentPane.add(ScrollPane);
 
+		
+		
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(new JLabel("Aufträge"));
 		
-																	
-		//list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-			
-		
-		JScrollPane SAScroll = new JScrollPane(list_1);
-		
-		SAScroll.add(list_1);
-		SAScroll.setPreferredSize(new Dimension(779,431));
-
+																			
 		
 		
+		list_1.setBounds(10, 30, 400, 300); 
+		contentPane.add(list_1);
+		list_1.setVisibleRowCount(10); 
+		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		
+	
 		Button Schließen = new Button("Schließen");											//Schließen
 		Schließen.setBounds(10, 363, 125, 21);
 		contentPane.add(Schließen);
@@ -145,7 +143,9 @@ public class Test extends JFrame {
 		JMenu mnNewMenu = new JMenu("Menü");
 		menuBar.add(mnNewMenu);
 		
-		
+		Button btnNewButton = new Button("Delete");
+		btnNewButton.setBounds(400, 363, 110, 21);
+		contentPane.add(btnNewButton);
 
 		JButton btnMitarbeiter = new JButton("Mitarbeiterzugang");							//Menü-Button MitarbeiterZugang
 		btnMitarbeiter.setMinimumSize(new Dimension(200, 23));
