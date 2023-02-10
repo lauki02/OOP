@@ -1,27 +1,15 @@
 package RotWeissGmbH;
-import java.awt.*;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionListener;
-
-import RotWeissGmbH.Serviceauftrag;
-//import RotWeissGmbH.GUI_Dashboard.MitarbeiterFensterListener;
-//import RotWeissGmbH.GUI_Dashboard.MitarbeiterListeFensterListener;
-
-import java.awt.ScrollPane;
-import java.awt.Window;
-import java.awt.List;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import java.awt.Button;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
@@ -33,8 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JButton;
 import java.awt.Dimension;
-import java.awt.Window.Type;
-import java.util.*;
 
 public class Test extends JFrame {
 
@@ -43,8 +29,8 @@ public class Test extends JFrame {
 	private JTextField NeuerAuftrag_Kunde;
 	private JTextField NeuerAuftrag_Datum;
 	private JTextField NeuerAuftrag_Mitarbeiter;
-	public ArrayList <Serviceauftrag> auftraege = new ArrayList<Serviceauftrag>();				//ArrayList
-	public JList<?> list_1 = new JList();							//JList
+	public 	ArrayList <Serviceauftrag> auftraege;// = new ArrayList<Serviceauftrag>();				//ArrayList
+	public 	JList<Object> list_1;//= new JList((ListModel) auftraege);							//JList
 
 	/**
 	 * Launch the application.
@@ -66,6 +52,8 @@ public class Test extends JFrame {
 	 * Create the frame.
 	 */
 	public Test() {
+		auftraege = new ArrayList<Serviceauftrag>();
+		list_1 = new JList<Object>();
 		setType(Type.UTILITY);
 		setTitle("NeueGUI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,14 +67,14 @@ public class Test extends JFrame {
 		contentPane.add(new JLabel("Aufträge"));
 		
 																	
-		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		//list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 			
 		
 		JScrollPane SAScroll = new JScrollPane(list_1);
 		
 		SAScroll.add(list_1);
-		SAScroll.setPreferredSize(new Dimension(300,300));
+		SAScroll.setPreferredSize(new Dimension(779,431));
 
 		
 		
@@ -270,7 +258,7 @@ public class Test extends JFrame {
 				
 				
 			
-		//updaten();
+		updaten();
 				System.out.println(auftraege);
 				
 			}
