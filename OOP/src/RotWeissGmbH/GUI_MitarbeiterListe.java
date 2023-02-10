@@ -122,7 +122,7 @@ public class GUI_MitarbeiterListe extends JFrame {
 			
 			
 			//Pruefen ob die eingegebene MitarebiterNummer eine Zahl ist
-			int MitarbeiterNummer=100;
+			int MitarbeiterNummer=0;
 			try {
 				MitarbeiterNummer = Integer.parseInt (NeuerMitarbeiter_Nummer.getText());
 			}
@@ -172,9 +172,7 @@ public class GUI_MitarbeiterListe extends JFrame {
 		}
 	}
 	
-	public void updateMA () {
-		list_2.setListData(mitarbeiterListe.toArray());
-	}
+	
 	
 	public void MaAnzeige() {
 		ArrayList <String> MaStrings = new ArrayList <String>();

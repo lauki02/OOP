@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import RotWeissGmbH.GUI_MitarbeiterListe.DeleteListener;
 import RotWeissGmbH.GUI_MitarbeiterListe.SpeichernListener;
@@ -54,7 +56,7 @@ public class GUI_Kunden extends JFrame {
 	 */
 	public GUI_Kunden() {
 		setType(Type.UTILITY);
-		setTitle("Kunden");
+		setTitle("Kundenliste");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 779, 431);
 		contentPane = new JPanel();getContentPane().setLayout(null);
@@ -71,6 +73,9 @@ public class GUI_Kunden extends JFrame {
 		contentPane.add(list_3);
 		list_3.setVisibleRowCount(10); 
 		list_3.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_3.addListSelectionListener(new SelectionListener());
+		
+		kundenListe = new ArrayList <Kunde>();
 		
 		JLabel lblNewLabel = new JLabel("Kundennummer:");
 		lblNewLabel.setBounds(436, 11, 132, 23);
@@ -111,13 +116,28 @@ public class GUI_Kunden extends JFrame {
 		}
 	}
 	
+	class SelectionListener implements ListSelectionListener {
+		public void valueChanged (ListSelectionEvent event) {
+			int bearbeiten = list_3.getSelectedIndex();
+			int KuNummer;
+			String KundenNr;
+			String Name;
+			KuNummer = kundenListe.get(bearbeiten).getKundenNummer();
+			Name = kundenListe.get(bearbeiten).getName();
+			KundenNr = Integer.toString(KuNummer);
+			NeuerKunde_Name.setText(Name);
+			NeuerKunde_Nummer.setText(KundenNr);
+		}
+	}
+	
+	
 	//Aktion fuer den Speichernknopf
 	class SpeichernListener implements ActionListener {
 		public void actionPerformed (ActionEvent event) {
 			
 			
 			//Pruefen ob die eingegebene MitarebiterNummer eine Zahl ist
-			int KundenNummer=100;
+			int KundenNummer=0;
 			try {
 				KundenNummer = Integer.parseInt (NeuerKunde_Nummer.getText());
 			}

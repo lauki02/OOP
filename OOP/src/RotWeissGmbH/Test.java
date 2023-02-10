@@ -4,6 +4,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import RotWeissGmbH.GUI_MitarbeiterListe.DeleteListener;
+
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import java.awt.Button;
@@ -73,6 +78,7 @@ public class Test extends JFrame {
 		contentPane.add(list_1);
 		list_1.setVisibleRowCount(10); 
 		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_1.addListSelectionListener(new SelectionListener());
 		
 		
 	
@@ -143,9 +149,10 @@ public class Test extends JFrame {
 		JMenu mnNewMenu = new JMenu("Menü");
 		menuBar.add(mnNewMenu);
 		
-		Button btnNewButton = new Button("Delete");
-		btnNewButton.setBounds(400, 363, 110, 21);
-		contentPane.add(btnNewButton);
+		Button btnDelete = new Button("Delete");
+		btnDelete.setBounds(400, 363, 110, 21);
+		contentPane.add(btnDelete);
+		btnDelete.addActionListener(new DeleteListener());
 
 		JButton btnMitarbeiter = new JButton("Mitarbeiterzugang");							//Menü-Button MitarbeiterZugang
 		btnMitarbeiter.setMinimumSize(new Dimension(200, 23));
@@ -240,7 +247,7 @@ public class Test extends JFrame {
 		
 				//Anliegen in einen String verwandeln
 				String Anliegen;
-				Anliegen = NeuerAuftrag_Mitarbeiter.getText();
+				Anliegen = NeuerAuftrag_Anliegen.getText();
 				
 				
 				if (KundenNummer!=0 && Anliegen != null && Datum != null) {
@@ -253,20 +260,76 @@ public class Test extends JFrame {
 						Serviceauftrag neu = new Serviceauftrag (KundenNummer, Anliegen, Datum, MitarbeiterNummer); 	//Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
 						auftraege.add(neu);																				//Speicher in der ArrayList
 					}
+					
+					NeuerAuftrag_Anliegen.setText(null);
+					NeuerAuftrag_Kunde.setText(null);
+					NeuerAuftrag_Datum.setText(null);
+					NeuerAuftrag_Mitarbeiter.setText(null);
 				}
-				
-				
-				
-			
-		updaten();
-				System.out.println(auftraege);
-				
+				updaten();
 			}
 		}
 		
 		public void updaten () {
-			list_1.setListData(auftraege.toArray());
-	}
+			ArrayList <String> SaStrings = new ArrayList <String> ();
+			String SaNummer;
+			String SaAnliegen;
+			String SaKunde;
+			Date Datum;
+			String SaDatum;
+			String SaMitarbeiter;
+			String Serviceauftrag;
+			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+			for (int i=0; i<auftraege.size(); i++) {
+				SaNummer=Integer.toString(auftraege.get(i).getAuftragsNummer());
+				SaAnliegen=auftraege.get(i).getAnliegen();
+				SaKunde=Integer.toString(auftraege.get(i).getKundenNummer());
+				Datum=auftraege.get(i).getAufgabeDatum();
+				SaDatum=sdf.format(Datum);
+				SaMitarbeiter=Integer.toString(auftraege.get(i).getSachbearbeiter());
+				Serviceauftrag=SaNummer+" | "+SaAnliegen+" | "+ "KuNr.: "+SaKunde+" | "+SaDatum+" | "+"MaNr.: "+SaMitarbeiter;
+				SaStrings.add(Serviceauftrag);
+			}
+			
+			list_1.setListData(SaStrings.toArray());
+			
+			
+		}
 		
+		
+		class SelectionListener implements ListSelectionListener {
+			public void valueChanged (ListSelectionEvent event) {
+				int bearbeiten = list_1.getSelectedIndex();
+				String SaAnliegen;
+				String SaKunde;
+				Date Datum;
+				String SaDatum;
+				String SaMitarbeiter;
+				String Serviceauftrag;
+				SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+				
+				SaAnliegen=auftraege.get(bearbeiten).getAnliegen();
+				SaKunde=Integer.toString(auftraege.get(bearbeiten).getKundenNummer());
+				Datum=auftraege.get(bearbeiten).getAufgabeDatum();
+				SaDatum=sdf.format(Datum);
+				SaMitarbeiter=Integer.toString(auftraege.get(bearbeiten).getSachbearbeiter());
+				
+				NeuerAuftrag_Anliegen.setText(SaAnliegen);
+				NeuerAuftrag_Kunde.setText(SaKunde);
+				NeuerAuftrag_Datum.setText(SaDatum);
+				NeuerAuftrag_Mitarbeiter.setText(SaMitarbeiter);
+				
+			}
+		}
+		
+		
+		class DeleteListener implements ActionListener {
+			public void actionPerformed (ActionEvent event) {
+				int delete = list_1.getSelectedIndex();
+				auftraege.remove(delete);
+				updaten();
+				
+			}
+		}
 }
 
