@@ -1,12 +1,24 @@
 package RotWeissGmbH;
 
 public class Mitarbeiter extends Person{
-	int MitarbeiterNummer;
+	private int MitarbeiterNummer;
+	
 	
 	//Konstruktor
-		void Mitarbeiter (String parameter1, String parameter2) {
+		Mitarbeiter (int parameter2, String parameter1) {
+			setMitarbeiterNummer(parameter2);
 			setName (parameter1);
-			setAdresse (parameter2);
-			//MitarbeiterNummer muss automatisch erzeugt werden
+			
+			
+		}
+
+
+		public int getMitarbeiterNummer() {
+			return MitarbeiterNummer;
+		}
+
+
+		public void setMitarbeiterNummer(int mitarbeiterNummer) {
+			MitarbeiterNummer = mitarbeiterNummer;
 		}
 }

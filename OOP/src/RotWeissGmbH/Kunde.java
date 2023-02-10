@@ -12,9 +12,9 @@ public class Kunde extends Person{
 	}
 	
 	//Konstruktor
-		void Kunde (String parameter1, String parameter2) {
-			setName (parameter1);
-			setAdresse (parameter2);
-			//KundenNummer muss automatisch erzeugt werden
+		Kunde (int parameter1, String parameter2) {
+			setKundenNummer (parameter1);
+			setName (parameter2);
+			
 		}
 }
