@@ -243,13 +243,14 @@ public class Test extends JFrame {
 				
 				}
 				
-	
-		
+			
 				//Anliegen in einen String verwandeln
 				String Anliegen;
 				Anliegen = NeuerAuftrag_Anliegen.getText();
 				
-				
+				//Anlegen eisen neuen Kundenauftrags
+				int bearbeiten=list_1.getSelectedIndex();
+				if (bearbeiten !=0) {
 				if (KundenNummer!=0 && Anliegen != null && Datum != null) {
 				
 					if (NeuerAuftrag_Mitarbeiter==null) {
@@ -260,6 +261,18 @@ public class Test extends JFrame {
 						Serviceauftrag neu = new Serviceauftrag (KundenNummer, Anliegen, Datum, MitarbeiterNummer); 	//Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
 						auftraege.add(neu);																				//Speicher in der ArrayList
 					}
+					
+					NeuerAuftrag_Anliegen.setText(null);
+					NeuerAuftrag_Kunde.setText(null);
+					NeuerAuftrag_Datum.setText(null);
+					NeuerAuftrag_Mitarbeiter.setText(null);
+				}
+				}
+				else {
+					auftraege.get(bearbeiten).setSachbearbeiter(MitarbeiterNummer);
+					auftraege.get(bearbeiten).setKundenNummer(KundenNummer);
+					auftraege.get(bearbeiten).setAufgabeDatum(Datum);
+					auftraege.get(bearbeiten).setAnliegen(Anliegen);
 					
 					NeuerAuftrag_Anliegen.setText(null);
 					NeuerAuftrag_Kunde.setText(null);
