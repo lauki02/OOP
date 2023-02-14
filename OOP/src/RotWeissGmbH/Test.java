@@ -1,31 +1,13 @@
 package RotWeissGmbH;
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
-import RotWeissGmbH.GUI_MitarbeiterListe.DeleteListener;
-
-import javax.swing.JScrollPane;
-import javax.swing.JList;
-import java.awt.Button;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JMenuBar;
-import javax.swing.JOptionPane;
-import javax.swing.JMenu;
-import javax.swing.JButton;
-import java.awt.Dimension;
+
 
 public class Test extends JFrame {
 
@@ -57,7 +39,7 @@ public class Test extends JFrame {
 	 */
 	public Test() {
 		auftraege = new ArrayList<Serviceauftrag>();
-		list_1 = new JList();
+		list_1 = new JList ();
 		setType(Type.UTILITY);
 		setTitle("NeueGUI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
