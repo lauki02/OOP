@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import java.awt.Button;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -202,8 +203,12 @@ public class Test extends JFrame {
 	}
 		class CSVListener implements ActionListener {											//ActionListener CSV
 			public void actionPerformed (ActionEvent event) {
-				JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
-			
+				//JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
+				
+				try {
+					CSV_Writer_New.makeCSVdata(list_1);
+				} catch (IOException e) {JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);}
+				
 		}
 	}
 		
