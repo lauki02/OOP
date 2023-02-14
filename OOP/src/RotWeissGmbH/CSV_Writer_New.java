@@ -17,38 +17,83 @@ import javax.swing.JList;
 
 
 public class CSV_Writer_New {
-	 public ArrayList<Serviceauftrag>auftraege= new ArrayList<Serviceauftrag>();
-	 public JList list_1 = new JList();
-	 
+	 ArrayList<Serviceauftrag>auftraege= new ArrayList<Serviceauftrag>();
+	 JList list_1 = new JList();
+	 ArrayList <Mitarbeiter> mitarbeiterListe = new ArrayList <Mitarbeiter> ();
+	 JList list_2 = new JList();
+	 ArrayList <Kunde> kundenListe= new ArrayList <Kunde>();
+	 JList list_3= new JList ();
 	 
 	
+	 
+	 
+	 
+	//Output Serviceauftraege
 	public static void makeCSVdata(JList list_1) throws IOException {
 		
 
-			try {
-					FileWriter writer = new FileWriter("C:\\Users\\corta\\git\\OOP_2\\OOP_3\\OOP");
-					File CSV_Serviceauftraege = new File ("Serviceauftraege.csv");
+				try {
+							FileWriter writer = new FileWriter("C:\\Users\\corta\\git\\OOP_2\\OOP_3\\OOP");
+							File CSV_Serviceauftraege = new File ("Serviceauftraege.csv");
 					
-					/*for (Serviceauftrag x : auftraege) {
-	                	StringBuilder xa = new StringBuilder();
-	                	xa.append(x.auftragsNummer);
-	                	xa.append(",");
-	                	xa.append(x.kundenNummer);
-	                	xa.append(",");
-	                	xa.append(x.anliegen);
-	                	xa.append(",");
-	                	xa.append(x.aufgabeDatum);
-	                	xa.append(",");
-	                	xa.append(x.sachbearbeiter); */
-						//writer.write(sb.toString());
-			writer.flush();
-			writer.close();
-			//} 
-			} catch (IOException e) {
-		  		 e.printStackTrace();
-		  		}
+					
+							writer.flush();
+							writer.close();
+			
+							} catch (IOException e) {
+									e.printStackTrace();
+									}
+	}
 	
-		  		
+	
+	
+	
+	
+	
+	
+	
+	
+	//Output Mitarbeiter
+	public static void makeCSVdata2(JList list_2) throws IOException {
+				
+
+				try {
+							FileWriter writer = new FileWriter("C:\\Users\\corta\\git\\OOP_2\\OOP_3\\OOP");
+							File CSV_Mitarbeiter = new File ("Mitarbeiter.csv");
+						
+						
+							writer.flush();
+							writer.close();
+				
+							} catch (IOException e) {
+									e.printStackTrace();
+									}
+	}
+		
+	
+	
+	
+	
+	
+	
+	//Output Kunden
+	public static void makeCSVdata3(JList list_3) throws IOException {
+							
+
+				try {
+						FileWriter writer = new FileWriter("C:\\Users\\corta\\git\\OOP_2\\OOP_3\\OOP");
+						File CSV_Kunden = new File ("Kunden.csv");
+									
+									
+						writer.flush();
+						writer.close();
+							
+						} catch (IOException e) {
+						  		 e.printStackTrace();
+						  		}
+							 
+							
+								
 	}		  		
 }
 			

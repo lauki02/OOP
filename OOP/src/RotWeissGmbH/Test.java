@@ -189,6 +189,7 @@ public class Test extends JFrame {
 				
 				try {
 					CSV_Writer_New.makeCSVdata(list_1);
+					//CSV_Writer_New.makeCSVdata2(list_2);
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
 				}
