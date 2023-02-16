@@ -18,7 +18,10 @@ public class Test extends JFrame {
 	private JTextField NeuerAuftrag_Datum;
 	private JTextField NeuerAuftrag_Mitarbeiter;
 	public 	ArrayList <Serviceauftrag> auftraege;
+	public ArrayList <String> SaStrings;
 	public 	JList list_1;
+	//public String [] Sa_Strings = new String [SaStrings.size()];
+	
 	/**
 	 * Launch the application.
 	 */
@@ -39,6 +42,7 @@ public class Test extends JFrame {
 	 * Create the frame.
 	 */
 	public Test() {
+		SaStrings = new ArrayList<String>();
 		auftraege = new ArrayList<Serviceauftrag>();
 		list_1 = new JList ();
 		setType(Type.UTILITY);
@@ -188,8 +192,8 @@ public class Test extends JFrame {
 				//JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
 				
 				try {
-					CSV_Writer_New.makeCSVdata(list_1);
-					//CSV_Writer_New.makeCSVdata2(list_2);
+					CSV_Writer_New.makeCSVdata(auftraege);
+					
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
 				}
@@ -295,7 +299,8 @@ public class Test extends JFrame {
 			}
 			
 			list_1.setListData(SaStrings.toArray());
-			
+			String [] Sa_Strings = new String [SaStrings.size()];
+			SaStrings.toArray(Sa_Strings);
 			
 		}
 		

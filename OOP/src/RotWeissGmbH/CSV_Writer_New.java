@@ -23,34 +23,41 @@ public class CSV_Writer_New {
 	 JList list_2 = new JList();
 	 ArrayList <Kunde> kundenListe= new ArrayList <Kunde>();
 	 JList list_3= new JList ();
+	 ArrayList <String> SaStrings = new ArrayList <String> ();
+	 String [] Sa_Strings = new String [SaStrings.size()];
 	 
 	
 	 
 	 
 	 
 	//Output Serviceauftraege
-	public static void makeCSVdata(JList list_1) throws IOException {
+	public static void makeCSVdata(ArrayList<Serviceauftrag>auftraege) throws IOException {
 		
 
 				try {
-							FileWriter writer = new FileWriter("C:\\Users\\corta\\git\\OOP_2\\OOP_3\\OOP");
-							File CSV_Serviceauftraege = new File ("Serviceauftraege.csv");
-					
-					
+							FileWriter writer = new FileWriter(new File ("Serviceauftraege.csv"));
+							for (Serviceauftrag x : auftraege) {
+				                StringBuilder xa = new StringBuilder();
+				                xa.append(x.auftragsNummer);
+				                xa.append(",");
+				                xa.append(x.anliegen);
+				                xa.append(",");
+				                xa.append(x.aufgabeDatum);
+				                xa.append(",");
+				                xa.append(x.sachbearbeiter);
+				                
+							writer.write(xa.toString());
 							writer.flush();
 							writer.close();
-			
-							} catch (IOException e) {
+							
+							}
+								
+							
+							}catch (IOException e) {
 									e.printStackTrace();
 									}
-	}
 	
-	
-	
-	
-	
-	
-	
+}	
 	
 	
 	//Output Mitarbeiter

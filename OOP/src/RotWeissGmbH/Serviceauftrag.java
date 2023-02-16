@@ -8,12 +8,12 @@ public class Serviceauftrag {
 	private static int number = 1;
 
 	// Attribute des Serviceauftrags definieren
-	private int auftragsNummer;
-	private int kundenNummer;
-	private String anliegen;
-	private Date aufgabeDatum;
+	public int auftragsNummer;
+	public int kundenNummer;
+	public String anliegen;
+	public Date aufgabeDatum;
 	private boolean status;
-	private int sachbearbeiter;
+	public int sachbearbeiter;
 	private GesamtKosten kosten;
 
 	// Setter und Getter fuer Attribute des Serviceauftrags definieren
