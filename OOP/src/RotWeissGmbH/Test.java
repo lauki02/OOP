@@ -17,6 +17,7 @@ public class Test extends JFrame {
 	private JTextField NeuerAuftrag_Kunde;
 	private JTextField NeuerAuftrag_Datum;
 	private JTextField NeuerAuftrag_Mitarbeiter;
+	private JTextField NeuerAuftrag_Kosten;
 	public 	ArrayList <Serviceauftrag> auftraege;
 	public ArrayList <String> SaStrings;
 	public 	JList list_1;
@@ -50,7 +51,8 @@ public class Test extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 779, 431);
 		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));getContentPane().setLayout(null);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().setLayout(null);
 
 		
 		
@@ -69,19 +71,12 @@ public class Test extends JFrame {
 		
 		
 	
-		Button Schließen = new Button("Schließen");											//Schließen
-		Schließen.setBounds(10, 363, 125, 21);
-		contentPane.add(Schließen);
-		Schließen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
+		Button btnSchließen = new Button("Schließen");											//Schließen
+		btnSchließen.setBounds(10, 363, 125, 21);
+		contentPane.add(btnSchließen);
+		btnSchließen.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {System.exit(0);}});
+		
 			
-			
-		});
-		
-		
-		
 		
 		Button Speichern = new Button("Speichern");											// Speichern
 		Speichern.setBounds(141, 363, 117, 21);
@@ -108,26 +103,35 @@ public class Test extends JFrame {
 		contentPane.add(NeuerAuftrag_Datum);
 		NeuerAuftrag_Datum.setColumns(10);
 		
-		JLabel NeuerAuftrag_Name_1 = new JLabel("Anliegen");
-		NeuerAuftrag_Name_1.setBounds(677, 96, 88, 16);
-		contentPane.add(NeuerAuftrag_Name_1);
+		JLabel lblAnliegen = new JLabel("Anliegen");
+		lblAnliegen.setBounds(677, 96, 88, 16);
+		contentPane.add(lblAnliegen);
 		
-		JLabel lblNewLabel_2 = new JLabel("Kunde");
-		lblNewLabel_2.setBounds(677, 125, 93, 16);
-		contentPane.add(lblNewLabel_2);
+		JLabel lblKunde = new JLabel("Kunde");
+		lblKunde.setBounds(677, 125, 93, 16);
+		contentPane.add(lblKunde);
 		
-		JLabel lblNewLabel_3 = new JLabel("Datum");
-		lblNewLabel_3.setBounds(680, 156, 88, 13);
-		contentPane.add(lblNewLabel_3);
+		JLabel lblDatum = new JLabel("Datum");
+		lblDatum.setBounds(677, 155, 88, 16);
+		contentPane.add(lblDatum);
 		
 		NeuerAuftrag_Mitarbeiter = new JTextField();
 		NeuerAuftrag_Mitarbeiter.setBounds(432, 182, 238, 19);
 		contentPane.add(NeuerAuftrag_Mitarbeiter);
 		NeuerAuftrag_Mitarbeiter.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Mitarbeiter");
-		lblNewLabel_4.setBounds(677, 185, 88, 13);
-		contentPane.add(lblNewLabel_4);
+		JLabel lblMitarbeiter = new JLabel("Mitarbeiter");
+		lblMitarbeiter.setBounds(677, 185, 88, 13);
+		contentPane.add(lblMitarbeiter);
+		
+		NeuerAuftrag_Kosten = new JTextField();
+		NeuerAuftrag_Kosten.setBounds(432, 210, 238, 19);
+		contentPane.add(NeuerAuftrag_Kosten);
+		NeuerAuftrag_Kosten.setColumns(10);
+		
+		JLabel lblKosten = new JLabel ("Kosten");
+		lblKosten.setBounds(677, 210, 88, 16);
+		contentPane.add(lblKosten);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 842, 22);
@@ -141,13 +145,13 @@ public class Test extends JFrame {
 		contentPane.add(btnDelete);
 		btnDelete.addActionListener(new DeleteListener());
 
-		JButton btnMitarbeiter = new JButton("Mitarbeiterzugang");							//Menü-Button MitarbeiterZugang
+		/*JButton btnMitarbeiter = new JButton("Mitarbeiterzugang");							//Menü-Button MitarbeiterZugang
 		btnMitarbeiter.setMinimumSize(new Dimension(200, 23));
 		btnMitarbeiter.setMaximumSize(new Dimension(200, 21));
 		btnMitarbeiter.setToolTipText("");
 		mnNewMenu.add(btnMitarbeiter);
-		btnMitarbeiter.addActionListener (new MitarbeiterZugangFensterListener ());
-		
+		btnMitarbeiter.addActionListener (new MitarbeiterZugangFensterListener ()); 
+		*/
 		JButton btnMitarbeiterListe = new JButton("Mitarbeiterliste");						//Menü-Button MitarbeiterListe
 		btnMitarbeiterListe.setMaximumSize(new Dimension(200, 23));
 		btnMitarbeiterListe.setMinimumSize(new Dimension(200, 23));
@@ -160,19 +164,19 @@ public class Test extends JFrame {
 		mnNewMenu.add(btnKunden);
 		btnKunden.addActionListener (new KundenFensterListener ());
 		
-		Button CSV = new Button("CSV");														//CSV-Button
-		CSV.setBounds(264, 363, 117, 21);
-		contentPane.add(CSV);
-		CSV.addActionListener (new CSVListener ());
+		Button btnCSV = new Button("CSV");														//CSV-Button
+		btnCSV.setBounds(264, 363, 117, 21);
+		contentPane.add(btnCSV);
+		btnCSV.addActionListener (new CSVListener ());
 	}
 	
-		class MitarbeiterZugangFensterListener implements ActionListener {					//ActionListener MitarbeiterZugang
+	/*	class MitarbeiterZugangFensterListener implements ActionListener {					//ActionListener MitarbeiterZugang
 			public void actionPerformed (ActionEvent event) {
 				GUI_Access.main(null);
 				//frmGui.setVisible(false);
 			
 		}
-	}
+	}*/
 		class MitarbeiterListeFensterListener implements ActionListener {					//ActionListener MitarbeiterListe
 			public void actionPerformed (ActionEvent event) {
 				GUI_MitarbeiterListe.main(null);
@@ -237,6 +241,15 @@ public class Test extends JFrame {
 				
 				}
 				
+				//Pruefen ob die eingegebenen Kosten ein double ist
+				double Kosten;
+				try {
+					Kosten = Double.parseDouble(NeuerAuftrag_Kosten.getText());
+				} catch (Exception e){
+					JOptionPane.showMessageDialog(null,  "Die eingegebenen Kosten sind keine zugelassene Zahl!", "Error", JOptionPane.ERROR_MESSAGE);
+					Kosten=0;
+				}
+				
 			
 				//Anliegen in einen String verwandeln
 				String Anliegen;
@@ -247,19 +260,24 @@ public class Test extends JFrame {
 				if (bearbeiten !=0) {
 				if (KundenNummer!=0 && Anliegen != null && Datum != null) {
 				
-					if (NeuerAuftrag_Mitarbeiter==null) {
+					if (NeuerAuftrag_Mitarbeiter==null && NeuerAuftrag_Kosten==null) {
 						Serviceauftrag neu = new Serviceauftrag (KundenNummer, Anliegen, Datum);						//Anlegen eines neuen Serviceauftrags für int, String, Calendar	
 						auftraege.add(neu);																				//Speicher in der ArrayList
 					}
-					else {
+					else if (NeuerAuftrag_Kosten==null){
 						Serviceauftrag neu = new Serviceauftrag (KundenNummer, Anliegen, Datum, MitarbeiterNummer); 	//Anlegen eines neuen Serviceauftrags für int, String, Calendar, int
 						auftraege.add(neu);																				//Speicher in der ArrayList
+					}
+					else {
+						Serviceauftrag neu = new Serviceauftrag (KundenNummer, Anliegen, Datum, MitarbeiterNummer, Kosten);
+						auftraege.add(neu);
 					}
 					
 					NeuerAuftrag_Anliegen.setText(null);
 					NeuerAuftrag_Kunde.setText(null);
 					NeuerAuftrag_Datum.setText(null);
 					NeuerAuftrag_Mitarbeiter.setText(null);
+					NeuerAuftrag_Kosten.setText(null);
 				}
 				}
 				else {
@@ -267,11 +285,13 @@ public class Test extends JFrame {
 					auftraege.get(bearbeiten).setKundenNummer(KundenNummer);
 					auftraege.get(bearbeiten).setAufgabeDatum(Datum);
 					auftraege.get(bearbeiten).setAnliegen(Anliegen);
+					auftraege.get(bearbeiten).setGesamtKosten(Kosten);
 					
 					NeuerAuftrag_Anliegen.setText(null);
 					NeuerAuftrag_Kunde.setText(null);
 					NeuerAuftrag_Datum.setText(null);
 					NeuerAuftrag_Mitarbeiter.setText(null);
+					NeuerAuftrag_Kosten.setText(null);
 				}
 				updaten();
 			}
@@ -285,6 +305,7 @@ public class Test extends JFrame {
 			Date Datum;
 			String SaDatum;
 			String SaMitarbeiter;
+			String SaKosten;
 			String Serviceauftrag;
 			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 			for (int i=0; i<auftraege.size(); i++) {
@@ -294,7 +315,8 @@ public class Test extends JFrame {
 				Datum=auftraege.get(i).getAufgabeDatum();
 				SaDatum=sdf.format(Datum);
 				SaMitarbeiter=Integer.toString(auftraege.get(i).getSachbearbeiter());
-				Serviceauftrag=SaNummer+" | "+SaAnliegen+" | "+ "KuNr.: "+SaKunde+" | "+SaDatum+" | "+"MaNr.: "+SaMitarbeiter;
+				SaKosten=Double.toString(auftraege.get(i).getGesamtKosten());
+				Serviceauftrag=SaNummer+" | "+SaAnliegen+" | "+ "KuNr.: "+SaKunde+" | "+SaDatum+" | "+"MaNr.: "+SaMitarbeiter+" | "+"Kosten: "+SaKosten;
 				SaStrings.add(Serviceauftrag);
 			}
 			
@@ -313,6 +335,7 @@ public class Test extends JFrame {
 				Date Datum;
 				String SaDatum;
 				String SaMitarbeiter;
+				String SaKosten;
 				String Serviceauftrag;
 				SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 				
@@ -321,11 +344,12 @@ public class Test extends JFrame {
 				Datum=auftraege.get(bearbeiten).getAufgabeDatum();
 				SaDatum=sdf.format(Datum);
 				SaMitarbeiter=Integer.toString(auftraege.get(bearbeiten).getSachbearbeiter());
-				
+				SaKosten=Double.toString(auftraege.get(bearbeiten).getGesamtKosten());
 				NeuerAuftrag_Anliegen.setText(SaAnliegen);
 				NeuerAuftrag_Kunde.setText(SaKunde);
 				NeuerAuftrag_Datum.setText(SaDatum);
 				NeuerAuftrag_Mitarbeiter.setText(SaMitarbeiter);
+				NeuerAuftrag_Kosten.setText(SaKosten);
 				
 			}
 		}

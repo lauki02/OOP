@@ -1,7 +1,9 @@
 package RotWeissGmbH;
 
-public class EinzelKosten extends GesamtKosten {
-	private double EinzelKosten;
+
+
+public class EinzelKosten {
+	/*private double EinzelKosten;
 	
 
 	// Kostruktor
@@ -17,5 +19,5 @@ public class EinzelKosten extends GesamtKosten {
 
 	public void setEinzelKosten(double einzelKosten) {
 		EinzelKosten = einzelKosten;
-	}
+	}*/
 }

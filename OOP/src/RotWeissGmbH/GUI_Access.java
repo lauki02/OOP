@@ -1,32 +1,34 @@
 package RotWeissGmbH;
 
-import java.awt.EventQueue;
-import java.awt.Window;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import java.awt.event.*;
+import java.util.ArrayList;
 
-import RotWeissGmbH.GUI_Menue.Zurück_NeuerAuftragListener;
+//import RotWeissGmbH.Serviceauftrag;
+//import RotWeissGmbH.Test;
 
-import java.awt.Window.Type;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import RotWeissGmbH.GUI_Menue.Zurück_NeuerAuftragListener;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
+/*
+
+
+
 
 public class GUI_Access extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField NeueKosten_Kosten;
+	private JTextField NeueKosten_Auftrag;
 	private JButton btnBack_Mitarbeiter;
+	private JButton btnSpeichern;
+	public static JList list_4;
+	
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,56 +42,80 @@ public class GUI_Access extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public GUI_Access() {
+		//Test.kostenUpdaten();
+		list_4 = new JList();
 		setType(Type.UTILITY);
 		setTitle("Mitarbeiterzugang:");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel(); getContentPane().setLayout(null); 
+		setBounds(100, 100, 780, 500);
+		contentPane = new JPanel(); 
+		getContentPane().setLayout(null); 
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane); getContentPane().setLayout(null); 
+		setContentPane(contentPane); 
+		getContentPane().setLayout(null); 
+		
+		list_4.setBounds(10, 30, 400, 350); 
+		contentPane.add(list_4);
+		list_4.setVisibleRowCount(10); 
+		list_4.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_4.addListSelectionListener(new SelectionListener());
  
- JLabel lblNewLabel = new JLabel("Neue Kosteneingabe:");
- lblNewLabel.setBounds(139, 10, 134, 13);
- contentPane.add(lblNewLabel);
+		JLabel lblNewLabel = new JLabel("Neue Kosteneingabe:");
+		lblNewLabel.setBounds(450, 10, 134, 13);
+		contentPane.add(lblNewLabel);
  
- textField = new JTextField();
- textField.setBounds(139, 34, 96, 19);
- contentPane.add(textField);
- textField.setColumns(10);
+		NeueKosten_Kosten = new JTextField();
+		NeueKosten_Kosten.setBounds(450, 34, 96, 19);
+		contentPane.add(NeueKosten_Kosten);
+		NeueKosten_Kosten.setColumns(10);
  
- JLabel lblNewLabel_1 = new JLabel("Auftrag:");
- lblNewLabel_1.setBounds(139, 78, 160, 13);
- contentPane.add(lblNewLabel_1);
+		JLabel lblNewLabel_1 = new JLabel("Auftrag:");
+		lblNewLabel_1.setBounds(450, 78, 160, 13);
+		contentPane.add(lblNewLabel_1);
  
- textField_1 = new JTextField();
- textField_1.setBounds(139, 101, 96, 19);
- contentPane.add(textField_1);
- textField_1.setColumns(10);
+		NeueKosten_Auftrag = new JTextField();
+		NeueKosten_Auftrag.setBounds(450, 101, 96, 19);
+		contentPane.add(NeueKosten_Auftrag);
+		NeueKosten_Auftrag.setColumns(10);
  
- JButton btnNewButton = new JButton("Speichern");
- btnNewButton.setBounds(316, 232, 110, 21);
- contentPane.add(btnNewButton);
+		btnSpeichern = new JButton("Speichern");
+		btnSpeichern.setBounds(550, 232, 110, 21);
+		contentPane.add(btnSpeichern);
+		btnSpeichern.addActionListener(new SpeichernListener());
  
- btnBack_Mitarbeiter = new JButton("Back");
- btnBack_Mitarbeiter.setBounds(10, 231, 89, 23);
- contentPane.add(btnBack_Mitarbeiter);
- btnBack_Mitarbeiter.addActionListener (new Back_MitarbeiterListener ());
+		btnBack_Mitarbeiter = new JButton("Back");
+		btnBack_Mitarbeiter.setBounds(420, 231, 89, 23);
+		contentPane.add(btnBack_Mitarbeiter);
+		btnBack_Mitarbeiter.addActionListener (new Back_MitarbeiterListener ());
 	}
 	
-	class Back_MitarbeiterListener implements ActionListener {                   // Zurück-Button auf Test
+	private class SelectionListener implements ListSelectionListener {
+		public void valueChanged (ListSelectionEvent event) {
+			
+			
+		}
+	}
+	
+	private class Back_MitarbeiterListener implements ActionListener {                   // Zurück-Button auf Test
 		public void actionPerformed (ActionEvent event) {
 			Test.main(null);
 			//Window frmGui = null;
 			//frmGui.setVisible(false);
 			
-			}
 		}
+	}
+	
+	private class SpeichernListener implements ActionListener {							//Speichern-Button
+		public void actionPerformed (ActionEvent event) {
+			list_4.getSelectedIndex();
+		}
+	}
+	
+
 		
 	
 }
-
+*/

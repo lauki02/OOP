@@ -1,19 +1,11 @@
 package RotWeissGmbH;
 
-
-
 import java.io.File;
 import java.io.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JList;
-
-
-
-
-
-
 
 
 public class CSV_Writer_New {
@@ -44,6 +36,8 @@ public class CSV_Writer_New {
 				xa.append(x.getAufgabeDatum());
 				xa.append(",");
 				xa.append(x.getSachbearbeiter());
+				xa.append(",");
+				xa.append(x.getGesamtKosten());
 				
 				xa.append(System.lineSeparator());
 				               

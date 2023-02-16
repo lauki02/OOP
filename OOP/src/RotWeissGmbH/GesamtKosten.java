@@ -2,8 +2,8 @@ package RotWeissGmbH;
 
 import java.util.*;
 
-public class GesamtKosten {
-	private double BerechnungsKosten;
+public class GesamtKosten extends Serviceauftrag {
+	/*private double BerechnungsKosten;
 	private double AlleKosten;
 	
 	public double getAlleKosten() {
@@ -17,16 +17,17 @@ public class GesamtKosten {
 	
 	//Addiere alle Einzelkosten des Arrays
 	 double summiereKosten() {
-		int i = 0;
-		int n = kostenListe.size();
-		
-		while (i <= n) {
-			BerechnungsKosten = BerechnungsKosten + kostenListe.get(i).getEinzelKosten();
-			i++;
+		for (int i=0; i<kostenListe.size(); i++) {
+			BerechnungsKosten = BerechnungsKosten + kostenListe.get(i).getEinzelKosten();	
 		}
 		AlleKosten = BerechnungsKosten;
 		return AlleKosten;
 	}
 	
+	 
+	 //Konstruktor
+	 GesamtKosten () {
+		 
+	 }*/
 
 }

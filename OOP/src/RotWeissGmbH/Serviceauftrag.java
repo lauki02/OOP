@@ -8,13 +8,13 @@ public class Serviceauftrag {
 	private static int number = 1;
 
 	// Attribute des Serviceauftrags definieren
-	public int auftragsNummer;
-	public int kundenNummer;
-	public String anliegen;
-	public Date aufgabeDatum;
+	private int auftragsNummer;
+	private int kundenNummer;
+	private String anliegen;
+	private Date aufgabeDatum;
 	private boolean status;
-	public int sachbearbeiter;
-	private GesamtKosten kosten;
+	private int sachbearbeiter;
+	private double gesamtKosten;
 
 	// Setter und Getter fuer Attribute des Serviceauftrags definieren
 	public int getAuftragsNummer() {
@@ -72,8 +72,30 @@ public class Serviceauftrag {
 	public static void setNumber(int number) {
 		Serviceauftrag.number = number;
 	}
+	
+	public double getGesamtKosten() {
+		return gesamtKosten;
+	}
+
+	public void setGesamtKosten(double gesamtKosten) {
+		this.gesamtKosten = gesamtKosten;
+	}
 
 	// Konstruktoren
+	public Serviceauftrag(int parameter1, String parameter2, Date parameter3, int parameter4, double parameter5) {
+		// Auftragsnummer setzen
+		setAuftragsNummer(number);
+		// übergebene Parameter zuteilen
+		setKundenNummer(parameter1);
+		setAnliegen(parameter2);
+		setAufgabeDatum(parameter3);
+		setSachbearbeiter(parameter4);
+		setGesamtKosten(parameter5);
+		//Auftragsnummer fuer den naehsten Auftrag erzeugen
+		number++;
+	}
+	
+	
 	public Serviceauftrag(int parameter1, String parameter2, Date parameter3, int parameter4) {
 		// Auftragsnummer setzen
 		setAuftragsNummer(number);
@@ -97,9 +119,11 @@ public class Serviceauftrag {
 		number++;
 	}
 
-	public static void add(ArrayList<Serviceauftrag> auftraege) {
-		// TODO Auto-generated method stub
+	/*public static void add(ArrayList<Serviceauftrag> auftraege) {
 		
-	}
+		
+	}*/
+
+	
 
 }
