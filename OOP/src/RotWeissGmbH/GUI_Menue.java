@@ -1,5 +1,5 @@
 package RotWeissGmbH;
-
+/*
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -27,9 +27,7 @@ public class GUI_Menue extends JFrame {
 	private JTextField textField_5;
 	private JButton btnZurück_NeuerAuftrag;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -43,9 +41,7 @@ public class GUI_Menue extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public GUI_Menue() {
 
 		
@@ -116,3 +112,4 @@ public class GUI_Menue extends JFrame {
 	
 	
 }
+*/

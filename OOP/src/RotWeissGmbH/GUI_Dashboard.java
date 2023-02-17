@@ -1,5 +1,5 @@
 package RotWeissGmbH;
-
+/*
 
 import java.awt.EventQueue;
 
@@ -46,9 +46,7 @@ public class GUI_Dashboard {
 
 	private JFrame frmGui;
 	private JTable table;
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -62,16 +60,12 @@ public class GUI_Dashboard {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public GUI_Dashboard() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	@SuppressWarnings("serial")
 	public void initialize() {
 		frmGui = new JFrame();
@@ -220,3 +214,4 @@ public class GUI_Dashboard {
 		}
 	}
 }
+*/

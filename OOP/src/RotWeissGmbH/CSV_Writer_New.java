@@ -37,6 +37,8 @@ public class CSV_Writer_New {
 				xa.append(",");
 				xa.append(x.getSachbearbeiter());
 				xa.append(",");
+				xa.append(x.getKundenNummer());
+				xa.append(",");
 				xa.append(x.getGesamtKosten());
 				
 				xa.append(System.lineSeparator());
