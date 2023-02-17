@@ -168,6 +168,17 @@ public class Test extends JFrame {
 		btnCSV.setBounds(264, 363, 117, 21);
 		contentPane.add(btnCSV);
 		btnCSV.addActionListener (new CSVListener ());
+		
+		
+		Button btnLaden = new Button("Laden");														//CSV-Button
+		btnLaden.setBounds(540, 363, 117, 21);
+		contentPane.add(btnLaden);
+		btnLaden.addActionListener (new LadenListener ());
+		
+		
+		
+		
+		
 	}
 	
 	/*	class MitarbeiterZugangFensterListener implements ActionListener {					//ActionListener MitarbeiterZugang
@@ -199,11 +210,38 @@ public class Test extends JFrame {
 					CSV_Writer_New.makeCSVdata(auftraege);
 					
 				} catch (IOException e) {
-					JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,  "CSV-Druck", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				
 		}
 	}
+		
+		
+		
+		class LadenListener implements ActionListener {											//ActionListener Laden
+			public void actionPerformed (ActionEvent event) {
+				//JOptionPane.showMessageDialog(null,  "CSV-Druck", "CSV", JOptionPane.ERROR_MESSAGE);
+				
+				try {
+					CSV_Reader_New.readCSVdata();
+					
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null,  "CSV-Lesen", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				updaten();
+				//auftraege.addAll(auftraege.toArray());
+		}
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
