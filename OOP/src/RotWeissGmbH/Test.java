@@ -228,7 +228,7 @@ public class Test extends JFrame {
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null,  "CSV-Lesen", "Error", JOptionPane.ERROR_MESSAGE);
 				}
-				goto updaten();
+				updaten();
 				//auftraege.addAll(auftraege.toArray());
 		}
 	}
