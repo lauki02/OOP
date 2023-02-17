@@ -42,7 +42,7 @@ public class CSV_Reader_New {
 	                
 	                
 	                auftragsNummer= Integer.parseInt(loadAuftrag[0]);
-	                //anliegen=loadAuftrag[1];
+	                anliegen=loadAuftrag[1];
 	                sachbearbeiter=Integer.parseInt(loadAuftrag[3]);
 	                gesamtKosten=Integer.parseInt(loadAuftrag[5]);
 	                kundenNummer=Integer.parseInt(loadAuftrag[4]);
@@ -52,7 +52,6 @@ public class CSV_Reader_New {
 	                	JOptionPane.showMessageDialog(null,  "Beim Einlesen der Daten ist ein Fehler aufgetreten.", "Error", JOptionPane.ERROR_MESSAGE);
 	                }*/
 	                aufgabeDatum=null;
-	                anliegen=null;
 	                
 	                Serviceauftrag s = new Serviceauftrag(kundenNummer, anliegen, aufgabeDatum, sachbearbeiter, gesamtKosten);
 	                	auftraege.add(s);
